@@ -4,15 +4,16 @@ import InputMask from 'react-input-mask'; // Импорт библиотеки �
 import '../styles/HeroSection.css'; // Импорт стилей из папки styles
 import '../styles/ServicesSection.css';
 import '../styles/ContactSection.css'; // Импорт стилей
-
+import { AddRequest } from '../api/requests';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
     const [showModal, setShowModal] = useState(false); // Состояние для управления модальным окном
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        phone: '',
+        surname: '',
+        name1: '',
+        telephone: '',
+        reason: '',
     });
 
     // Функция для открытия модального окна
@@ -21,7 +22,7 @@ const HeroSection = () => {
     // Функция для закрытия модального окна и очистки формы
     const handleCloseModal = () => {
         setShowModal(false);
-        setFormData({ firstName: '', lastName: '', phone: '' }); // Очистка формы
+        setFormData({ surname: '', name1: '', telephone: '', reason: '' }); // Очистка формы
     };
 
     // Функция для обработки изменений в форме
@@ -34,11 +35,16 @@ const HeroSection = () => {
     };
 
     // Функция для отправки формы
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Форма отправлена:', formData); // Вывод данных в консоль (можно заменить на отправку на сервер)
-        handleCloseModal(); // Закрываем модальное окно и очищаем форму
-    };
+        try {
+            AddRequest(formData);
+            console.log('Форма отправлена:', formData);
+            handleCloseModal();
+        } catch (error) {
+            console.error('Ошибка при отправке формы:', error);
+        }
+    }
 
     return (
         <div className="hero-section">
@@ -58,46 +64,56 @@ const HeroSection = () => {
                     </Modal.Header>
                     <Modal.Body>
                         <Form onSubmit={handleSubmit}>
-                            <Form.Group controlId="formLastName">
+                            <Form.Group controlId="formsurname">
                                 <Form.Label>Фамилия</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    name="lastName"
-                                    value={formData.lastName}
+                                    name="surname"
+                                    value={formData.surname}
                                     onChange={handleInputChange}
                                     required
                                 />
                             </Form.Group>
 
-                            <Form.Group controlId="formFirstName">
+                            <Form.Group controlId="formname">
                                 <Form.Label>Имя</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    name="firstName"
-                                    value={formData.firstName}
+                                    name="name1"
+                                    value={formData.name1}
                                     onChange={handleInputChange}
                                     required
                                 />
                             </Form.Group>
 
-                            <Form.Group controlId="formPhone">
+                            <Form.Group controlId="formtelephone">
                                 <Form.Label>Телефон</Form.Label>
                                 <InputMask
-                                    mask="+7 (999) 999-99-99" // Маска для телефона
-                                    value={formData.phone}
+                                    mask="+7(999)999-99-99" // Маска для телефона
+                                    name="telephone"
+
+                                    value={formData.telephone}
                                     onChange={handleInputChange}
                                 >
                                     {(inputProps) => (
                                         <Form.Control
                                             {...inputProps}
                                             type="tel"
-                                            name="phone"
                                             required
                                         />
                                     )}
                                 </InputMask>
                             </Form.Group>
-
+                            <Form.Group controlId="formsurname">
+                                <Form.Label>Ваш вопрос</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    name="reason"
+                                    value={formData.reason}
+                                    onChange={handleInputChange}
+                                    required
+                                />
+                            </Form.Group>
                             <Button variant="primary" type="submit" className="mt-3">
                                 Отправить заявку
                             </Button>
@@ -119,7 +135,7 @@ const InfoSection=()=>{
                     </Container>
                     */
                     <div className='mt-5' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: "column"}}>
-      <p style={{ textAlign: 'center', fontSize: '17px', width: "75%"}}>
+      <p style={{ fontSize: '17px', width: "70%"}}>
         Сервисный центр «ТехноМедиаСоюз» — это команда профессионалов, которая уже много лет успешно решает задачи по ремонту и обслуживанию компьютеров, ноутбуков, принтеров и другой оргтехники в Арске и Атне. Мы гордимся тем, что предлагаем своим клиентам не только качественные услуги, но и индивидуальный подход к каждому запросу.
         <br></br>
         Наши специалисты имеют большой опыт работы с техникой различных брендов и моделей. Мы используем современное оборудование и оригинальные комплектующие, чтобы обеспечить долгую и бесперебойную работу ваших устройств.
@@ -137,7 +153,7 @@ const InfoSection=()=>{
 }
 const ServicesSection = () => {
     return (
-      <Container className="my-5 text-center"> {/* Добавлены отступы по краям */}
+      <Container className="mt-3 mb-5 text-center"> {/* Добавлены отступы по краям */}
  
             <h2 style={{fontSize:"2.5rem"}}>Наши услуги</h2>
        
@@ -232,6 +248,7 @@ const MapComponent = () => {
   };
 
   import '../styles/ExperienceSection.css';
+
 const ExperienceSection = () => {
     return (
         
@@ -332,16 +349,16 @@ const ReviewsComponent = () => {
       }, []);
     
       return (
-        <Container className='mt-5 text-center justify-content-center'>
+        <Container className='mt-5 justify-content-center'>
 
-                        <h2 style={{fontSize:"2.5rem", marginBottom: "1rem"}}>Что говорят клиенты</h2>
+                        <h2 className='text-center' style={{fontSize:"2.5rem", marginBottom: "1rem"}}>Что говорят клиенты</h2>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: "column"}}>
 
-                    <p  style={{ textAlign: 'center', fontSize: '18px', marginBottom: "1rem"}}>
-                    Мы всегда рады услышать ваше мнение о нашей работе. Ваши отзывы помогают нам становиться лучше. Вот что говорят наши клиенты:
-                    А если вы уже пользовались нашими услугами, оставьте свой отзыв — нам важно знать, что мы движемся в правильном направлении!
+                    <p style={{ fontSize: '18px', marginBottom: "1rem", width: '80%'}}>
+                    Мы всегда рады услышать ваше мнение о нашей работе. Ваши отзывы помогают нам становиться лучше.                     А если вы уже пользовались нашими услугами, оставьте свой отзыв — нам важно знать, что мы движемся в правильном направлении!
                                             </p>
-
-                  <div id="smart-widget-container" style={{marginLeft: "5rem auto", marginRight: "5rem auto", marginBottom:"2rem"}}></div>
+</div>
+                  <div id="smart-widget-container" className='text-center' style={{marginLeft: "5rem auto", marginRight: "5rem auto", marginBottom:"2rem"}}></div>
 
         </Container>
     );
