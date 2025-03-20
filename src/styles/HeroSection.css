@@ -1,0 +1,91 @@
+.hero-section {
+    position: relative; /* Необходимо для позиционирования псевдоэлемента */
+    background-image: url('../images/fon1.jpg');
+    background-size: cover; /* Масштабирует изображение, чтобы оно покрывало всю область */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Запрещает повторение изображения */
+    height: 85vh; /* Высота секции на весь экран */
+    display: flex;
+    align-items: center; /* Выравниваем контент по вертикали по центру */
+    justify-content: center; /* Выравниваем контент по горизонтали по центру */
+    color: white;
+    text-align: center;
+    padding: 0 20px; /* Убираем отступ сверху, оставляем только по бокам */
+    margin: 0; /* Убираем внешние отступы */
+}
+
+/* Затемнение фона */
+.hero-section::before {
+    content: ''; /* Обязательно для псевдоэлемента */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); /* Черный цвет с прозрачностью 50% */
+    z-index: 1; /* Убедитесь, что затемнение находится над фоном, но под контентом */
+}
+
+/* Контент должен быть выше затемнения */
+.hero-section .hero-content {
+    position: relative;
+    z-index: 2; /* Контент должен быть выше затемнения */
+    max-width: 700px; /* Ограничиваем ширину контента */
+    width: 100%; /* Занимает всю доступную ширину, но не более max-width */
+    padding: 20px; /* Добавляем отступы внутри контейнера */
+    margin: 0; /* Убираем внешние отступы */
+}
+.hero-content {
+     /* Полупрозрачный черный фон для текста */
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 800px; /* Ограничиваем ширину контента */
+    width: 100%; /* Занимает всю доступную ширину */
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero-content .btn {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem; /* Уменьшаем размер заголовка на маленьких экранах */
+    }
+
+    .hero-content p {
+        font-size: 1.2rem; /* Уменьшаем размер текста на маленьких экранах */
+    }
+
+    .hero-content .btn {
+        font-size: 1rem; /* Уменьшаем размер кнопки на маленьких экранах */
+        padding: 0.5rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.5rem; /* Еще меньше заголовок для очень маленьких экранов */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Еще меньше текст для очень маленьких экранов */
+    }
+
+    .hero-content .btn {
+        font-size: 0.9rem; /* Еще меньше кнопка для очень маленьких экранов */
+        padding: 0.4rem 1.2rem;
+    }
+}
+

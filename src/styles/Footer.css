@@ -1,0 +1,88 @@
+/* styles/Footer.css */
+.footer {
+    padding: 2rem 0;
+    
+    background-color: #051354; /* Темно-синий фон */
+    color: #ffffff; /* Белый текст */
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffffff; /* Белый цвет для заголовков */
+}
+
+.footer p {
+    font-size: 1rem;
+    color: #e0e0e0; /* Светло-серый цвет для текста */
+    line-height: 1.6;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: #e0e0e0; /* Светло-серый цвет для ссылок */
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #ffffff; /* Белый цвет при наведении */
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: #e0e0e0; /* Светло-серый цвет для копирайта */
+    margin-top: 1rem;
+}
+
+/* Стили для иконок соцсетей */
+.social-links {
+    margin-top: 1rem;
+}
+
+.social-links a {
+    margin-right: 1rem;
+    display: inline-block;
+}
+
+.social-icon {
+    width: 32px; /* Размер иконок */
+    height: 32px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Увеличиваем иконку при наведении */
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .footer h3 {
+        font-size: 1.25rem; /* Уменьшаем размер заголовка на мобильных устройствах */
+    }
+
+    .footer p {
+        font-size: 0.9rem; /* Уменьшаем размер текста на мобильных устройствах */
+    }
+
+    .footer-links a {
+        font-size: 0.9rem; /* Уменьшаем размер ссылок на мобильных устройствах */
+    }
+
+    .copyright {
+        font-size: 0.8rem; /* Уменьшаем размер копирайта на мобильных устройствах */
+    }
+
+    .social-icon {
+        width: 28px; /* Уменьшаем размер иконок на мобильных устройствах */
+        height: 28px;
+    }
+}

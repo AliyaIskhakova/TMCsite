@@ -1,0 +1,70 @@
+/* styles/ContactsSection.css */
+.contacts-section {
+    padding: 2rem;
+    background-color: #DFE4FB; /* Белый фон для секции */
+    margin: 0;
+    padding: 0%;
+}
+
+.contacts-section h2 {
+    /*font-size: 2.5rem; /* Размер заголовка */
+    margin: 0;
+    padding: 0%;}
+
+.contacts-section h3 {
+    /*font-size: 1.75rem; /* Размер подзаголовка */
+    color: #1A1A1A; /* Цвет подзаголовков */
+    margin: 1rem;
+    padding: 0%;
+}
+
+.contacts-section p {
+    font-size: 1rem; /* Размер текста */
+    color: #1A1A1A; /* Цвет текста */
+    margin: 0.25rem;
+    padding: 0%;
+}
+
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 992px) {
+    .contacts-section h2 {
+        font-size: 2rem; /* Уменьшаем размер заголовка на планшетах */
+    }
+
+    .contacts-section h3 {
+        font-size: 1.5rem; /* Уменьшаем размер подзаголовка на планшетах */
+    }
+
+    .contacts-section p {
+        font-size: 0.9rem; /* Уменьшаем размер текста на планшетах */
+    }
+}
+
+@media (max-width: 768px) {
+    .contacts-section h2 {
+        font-size: 1.75rem; /* Уменьшаем размер заголовка на мобильных устройствах */
+    }
+
+    .contacts-section h3 {
+        font-size: 1.25rem; /* Уменьшаем размер подзаголовка на мобильных устройствах */
+    }
+
+    .contacts-section p {
+        font-size: 0.85rem; /* Уменьшаем размер текста на мобильных устройствах */
+    }
+}
+
+@media (max-width: 576px) {
+    .contacts-section h2 {
+        font-size: 1.5rem; /* Еще меньше размер заголовка на очень маленьких экранах */
+    }
+
+    .contacts-section h3 {
+        font-size: 1.1rem; /* Еще меньше размер подзаголовка на очень маленьких экранах */
+    }
+
+    .contacts-section p {
+        font-size: 0.8rem; /* Еще меньше размер текста на очень маленьких экранах */
+    }
+}
