@@ -126,14 +126,6 @@ const HeroSection = () => {
 };
 const InfoSection=()=>{
     return(
-        /*<Container className="my-5 content-center"> {/* Добавлены отступы по краям }
-     
-        <p align="center" style={{ fontSize: "17px", fontPalette: "dark", maxWidth: "900px"}}>
-                        В настоящее время оргтехнику можно встретить на любом предприятии, в офисе и квартире: будь то персональные компьютеры или же сложные МФУ. Такими устройствами может пользоваться практически любой человек. Однако даже самая качественная техника способна принести своему владельцу массу неудобств, если в случае поломки оборудования придется тратить свое драгоценное время из-за неоперативной работы сервисного центра по ремонту оргтехники, отсутствия необходимых запчастей или расходных материалов.
-                                            Клиент получает удовольствие при пользовании оргтехникой только в случае ее бесперебойной работы. Именно “ТехноМедиаСоюз” предлагает своим клиентам сервис оргтехники (принтеры, МФУ, копиры, факсы и т.п.), позволяющий пользователям не думать о проблемах с ремонтом оборудования.
-                    </p>
-                    </Container>
-                    */
                     <div className='mt-5' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: "column"}}>
       <p style={{ fontSize: '17px', width: "70%"}}>
         Сервисный центр «ТехноМедиаСоюз» — это команда профессионалов, которая уже много лет успешно решает задачи по ремонту и обслуживанию компьютеров, ноутбуков, принтеров и другой оргтехники в Арске и Атне. Мы гордимся тем, что предлагаем своим клиентам не только качественные услуги, но и индивидуальный подход к каждому запросу.
@@ -162,9 +154,9 @@ const ServicesSection = () => {
                     <Card className="service-card">
                         <Card.Img variant="top" src="src\images\f1.png" alt="Ремонт принтеров" />
                         <Card.Body>
-                            <Card.Title>Ремонт принтеров</Card.Title>
+                            <Card.Title>Ремонт оргтехники</Card.Title>
                             <Card.Text>
-                                Мы предлагаем профессиональный ремонт принтеров любой сложности.
+                                Мы предлагаем профессиональный ремонт оргтехники любой сложности.
                             </Card.Text>
                             <Link to="/repair" >
                                 Подробнее
@@ -298,25 +290,6 @@ const ExperienceSection = () => {
     );
 };
 const ReviewsComponent = () => {
-    
-        /*<div style={{
-            position: 'relative', 
-            overflow: 'hidden', 
-            width: '100%'
-          }}>
-                   <Container><h2>Отзывы</h2></Container>   
-
-
-            <iframe
-              src="https://swdgts.ru/818fb198d62be30b0c919621579a47f8"
-              width="100%" // Ширина 100% от родительского контейнера
-              
-              frameborder="1"
-              allowFullScreen={true}
-              style={{ position: 'relative' }}
-            ></iframe>
-        
-      </div>*/
       useEffect(() => {
         // Проверяем, был ли скрипт уже добавлен
         if (!document.querySelector('script[src="https://res.smartwidgets.ru/app.js"]')) {
@@ -417,8 +390,7 @@ const MainPage = () => {
             <HeroSection />
             <InfoSection/>
             <ServicesSection />
-            <ExperienceSection/>
-            
+            <ExperienceSection/>        
             <ReviewsComponent/>
             <ContactsSection/>
         </div>

@@ -56,9 +56,10 @@ const NavBar = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
+                            <Nav.Link href="/mainpage" style={{ color: '#fff' }}>Главная</Nav.Link>
                             <Nav.Link href="/repair" style={{ color: '#fff' }}>Ремонт оргтехники</Nav.Link>
+                            <Nav.Link href="/repaircomputer" style={{ color: '#fff' }}>Ремонт компьютеров</Nav.Link>
                             <Nav.Link href="/refilling" style={{ color: '#fff' }}>Заправка картриджей</Nav.Link>
-                            <Nav.Link href="/delivery" style={{ color: '#fff' }}>Доставка и оплата</Nav.Link>
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

@@ -3,7 +3,7 @@ import mainPage from "./pages/mainpage"
 import Auth from "./pages/Auth"
 import Repair from "./pages/Repair"
 import Refilling from "./pages/Refilling"
-import Delivery from "./pages/Delivery"
+import RepairComputer from "./pages/RepairComputer"
 
 
 export const authRoutes = [
@@ -35,7 +35,7 @@ export const publicRoutes=[
         Component: Refilling
     }, 
     {
-        path: '/delivery',
-        Component: Delivery
+        path: '/repaircomputer',
+        Component: RepairComputer
     }
 ]

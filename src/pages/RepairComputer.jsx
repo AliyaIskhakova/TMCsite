@@ -4,10 +4,10 @@ import InputMask from 'react-input-mask'; // Импорт библиотеки �
 import '../styles/HeroSection.css'; // Импорт стилей из папки styles
 import '../styles/ServicesSection.css';
 import '../styles/ContactSection.css'; // Импорт стилей
-import '../styles/TableStyle.css';
 import { AddRequest } from '../api/requests';
-import { getType1 } from '../api/services';
+import { getType2 } from '../api/services';
 import { Link } from 'react-router-dom';
+import '../styles/TableStyle.css';
 
 const InfoSection = () => {
   return (
@@ -23,34 +23,16 @@ const InfoSection = () => {
             <br /><br />
             Сотрудничать с профессиональным центром намного удобнее. У нас современный, хорошо оснащенный сервис ремонта оргтехники, наши сертифицированные мастера способны восстановить сломанную технику любых брендов.
           </p>
-          
         </Col>
         <Col xs={12} md={4} lg={6} className="my-3 d-flex justify-content-center">
           <img src="src/images/printer.jpg" alt="Printer" className="img-fluid" style={{ maxHeight: '400px' }} />
         </Col>
       </Row>
-      <Row className="mt-4">
-            <Col xs={12} md={6}>
-              <ul className="text-primary" style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
-                <li>Принтеры, МФУ, плоттеры; термопринтеры;</li>
-                <li>Компьютеры, ноутбуки, серверы;</li>
-                <li>Мониторы, телевизоры;</li>
-                <li>ИБП, стабилизаторы;</li>
-              </ul>
-            </Col>
-            <Col xs={12} md={6}>
-              <ul className="text-primary" style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
-                <li>Проекторы, видеонаблюдение;</li>
-                <li>Шредеры, брошюраторы;</li>
-                <li>Ламинаторы, резаки;</li>
-                <li>Факсы и другие офисные устройства.</li>
-              </ul>
-            </Col>
-          </Row>
     </div>
   );
 };
-const Repair = () => {
+
+const RepairComputer = () => {
   const [services, setServices]=React.useState([]);
   const [showModal, setShowModal] = useState(false); // Состояние для управления модальным окном
     const [formData, setFormData] = useState({
@@ -91,7 +73,7 @@ const Repair = () => {
     };
 
   React.useEffect(()=>{
-    getType1().then((data) =>{
+    getType2().then((data) =>{
       setServices(data); 
     })
 }, [])
@@ -99,9 +81,9 @@ const Repair = () => {
     return(
       
       <div>
-        <div className="hero-sectionRepair">
-            <Container className="hero-contentRepair">
-                <h1>Ремонт и обслуживание оргтехники</h1>
+        <div className="hero-sectionRepairComputer">
+            <Container className="hero-contentRepairComputer">
+                <h1>Ремонт компьютерной техники</h1>
                 <p>
                     Сервисный центр «Техномедиасоюз» осуществляет ремонт, обслуживание оргтехники в Арске и Атне.
                 </p>
@@ -177,37 +159,30 @@ const Repair = () => {
 
         <Container>
           <InfoSection/>
-          <h2 className="text-center ">Цены на работы</h2>
-          
-          <Table striped bordered hover>
-    <tbody>
-        <tr>
+
+          <Table striped bordered hover className="custom-table">
+        <tbody>
+          <tr>
             <th>Услуга</th>
             <th>Цена</th>
             <th></th>
-        </tr>
-        {
-            services.map((item, index) => (
-                <tr key={index}>
-                    <td>{item.name}</td>
-                    <td>от {item.cost} руб.</td>
-                    <td>
-                        <Button variant="outline-primary" size="sm" onClick={handleShowModal}>
-                            Оставить заявку
-                        </Button>
-                    </td>
-                </tr>
-            ))
-        }
-    </tbody>
-</Table>
-
-    <p className="text-muted mt-3" style={{ fontSize: '12px' }}>
-            *Цены зависят от сложности ремонта и наличия электронных компонентов. Вы всегда можете узнать цену решения проблемы по Whatsapp, Telegram или же оставить заявку на нашем сайте.
-          </p>
+          </tr>
+          {services.map((item, index) => (
+            <tr key={index}>
+              <td>{item.name}</td>
+              <td>от {item.cost} руб.</td>
+              <td>
+                <Button variant="outline-primary" size="sm" onClick={handleShowModal}>
+                  Оставить заявку
+                </Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </Container>
         </div>
     );
 };
 
-export default Repair
+export default RepairComputer
