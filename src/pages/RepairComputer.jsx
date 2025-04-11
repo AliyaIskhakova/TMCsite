@@ -8,6 +8,7 @@ import { AddRequest } from '../api/requests';
 import { getType2 } from '../api/services';
 import { Link } from 'react-router-dom';
 import '../styles/TableStyle.css';
+import WorkSteps from '../component/WorkSteps';
 
 const InfoSection = () => {
   return (
@@ -15,13 +16,13 @@ const InfoSection = () => {
       <Row className="justify-content-center align-items-center">
         <Col xs={12} md={8} lg={6} className="my-3">
           <p className="text-justify" style={{ fontSize: '17px' }}>
-            Для продуктивной работы в офисе или на предприятии необходимо чтобы всё, чем пользуются сотрудники было в исправном состоянии. Если в кабинете не работает принтер, распечатка обычного бланка будет занимать много времени. Придется идти копировать документ на цифровой носитель, нести флешку в соседний кабинет и там распечатывать.
-            <br /><br />
-            Помимо принтеров существует большое количество другой оргтехники. Для такого оборудования необходимо проводить обслуживание, а случае возникновения неисправностей проводить ремонтные работы.
-            <br /><br />
-            Наш сервисный центр предоставляет услуги по ремонту оргтехники в Арске и Атне.
-            <br /><br />
-            Сотрудничать с профессиональным центром намного удобнее. У нас современный, хорошо оснащенный сервис ремонта оргтехники, наши сертифицированные мастера способны восстановить сломанную технику любых брендов.
+
+          Мы производим срочный, текущий, сервисный ремонт системных блоков, ноутбуков в Арске. Делаем апгрейд — увеличиваем память и объем диска, меняем процессор и видеокарту на более мощное «железо», устанавливаем более мощный блок питания. Производим ремонт материнских плат и отдельных комплектующих.
+          <br/><br/>
+ССпециалисты нашего сервисного центра по ремонту ноутбуков и компьютеров в Арске способны справиться со всеми видами неисправностей — устранят причину перегрева и самопроизвольного отключения, восстановят работоспособность техники, на которую пролита жидкость.
+<br/><br/>
+В случае если восстановление работоспособности материнской платы невозможно, то подберем варианты по замене материнской платы или иных неисправностей.
+
           </p>
         </Col>
         <Col xs={12} md={4} lg={6} className="my-3 d-flex justify-content-center">
@@ -36,8 +37,7 @@ const RepairComputer = () => {
   const [services, setServices]=React.useState([]);
   const [showModal, setShowModal] = useState(false); // Состояние для управления модальным окном
     const [formData, setFormData] = useState({
-        surname: '',
-        name1: '',
+        fio: '',
         telephone: '',
         reason: '',
     });
@@ -85,7 +85,7 @@ const RepairComputer = () => {
             <Container className="hero-contentRepairComputer">
                 <h1>Ремонт компьютерной техники</h1>
                 <p>
-                    Сервисный центр «Техномедиасоюз» осуществляет ремонт, обслуживание оргтехники в Арске и Атне.
+                    Сервисный центр «Техномедиасоюз» осуществляет ремонт, обслуживание компьютерной техники в Арске и Атне.
                 </p>
                 <Button variant="primary" size="lg" onClick={handleShowModal}>
                     Оставить заявку
@@ -156,31 +156,34 @@ const RepairComputer = () => {
                 </Modal>
             </Container>
         </div>
-
-        <Container>
-          <InfoSection/>
-
-          <Table striped bordered hover className="custom-table">
-        <tbody>
-          <tr>
-            <th>Услуга</th>
-            <th>Цена</th>
-            <th></th>
-          </tr>
-          {services.map((item, index) => (
-            <tr key={index}>
-              <td>{item.name}</td>
-              <td>от {item.cost} руб.</td>
-              <td>
-                <Button variant="outline-primary" size="sm" onClick={handleShowModal}>
-                  Оставить заявку
-                </Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </Container>
+                <Container>
+                  <InfoSection/>
+                </Container>
+        
+        
+          <WorkSteps/>
+        <Container> 
+        <Table striped bordered hover className="custom-table">
+            <tbody>
+              <tr>
+                <th>Услуга</th>
+                <th>Цена</th>
+                <th></th>
+              </tr>
+              {services.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.name}</td>
+                  <td>от {item.cost} руб.</td>
+                  <td>
+                    <Button variant="outline-primary" size="sm" onClick={handleShowModal}>
+                      Оставить заявку
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </Container>
         </div>
     );
 };

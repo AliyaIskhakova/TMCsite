@@ -1,0 +1,129 @@
+/* Основные стили компонента */
+.work-steps-section {
+    padding: 3rem 0;
+    background-color: #DFE4FB;
+    margin: 0;
+}
+
+.work-steps-section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.work-steps-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+/* Стили для каждого этапа */
+.work-step-item {
+    text-align: center;
+    flex: 1;
+    min-width: 0;
+    padding: 0 0.5rem;
+}
+
+.icon-container {
+    margin-bottom: 1rem;
+}
+
+.work-step-circle {
+    width: 90px;
+    height: 90px;
+    background-color: #0E2280;
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.work-step-icon {
+    color: white;
+    font-size: 2rem;
+}
+
+.step-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: #01125C;
+}
+
+.pp {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Стили для стрелок */
+.work-step-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.2rem;
+    color: #01125C;
+    font-size: 1.8rem;
+    margin-top: 40px;
+}
+
+.arrow-icon {
+    opacity: 0.7;
+}
+
+/* Адаптация для разных экранов */
+@media (max-width: 992px) {
+    .work-step-circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .work-step-icon {
+        font-size: 1.8rem;
+    }
+    
+    .step-title {
+        font-size: 1.2rem;
+    }
+    
+    .work-step-arrow {
+        font-size: 1.5rem;
+        margin-top: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .work-steps-wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .work-step-item {
+        flex: 0 0 50%;
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .work-step-item {
+        flex: 0 0 100%;
+    }
+    
+    .work-step-circle {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .work-step-icon {
+        font-size: 1.6rem;
+    }
+    
+    .step-title {
+        font-size: 1.1rem;
+    }
+}

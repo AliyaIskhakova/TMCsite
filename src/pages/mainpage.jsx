@@ -10,8 +10,7 @@ import { Link } from 'react-router-dom';
 const HeroSection = () => {
     const [showModal, setShowModal] = useState(false); // Состояние для управления модальным окном
     const [formData, setFormData] = useState({
-        surname: '',
-        name1: '',
+        fio: '',
         telephone: '',
         reason: '',
     });
@@ -22,7 +21,7 @@ const HeroSection = () => {
     // Функция для закрытия модального окна и очистки формы
     const handleCloseModal = () => {
         setShowModal(false);
-        setFormData({ surname: '', name1: '', telephone: '', reason: '' }); // Очистка формы
+        setFormData({ fio: '', telephone: '', reason: '' }); // Очистка формы
     };
 
     // Функция для обработки изменений в форме
@@ -65,26 +64,16 @@ const HeroSection = () => {
                     <Modal.Body>
                         <Form onSubmit={handleSubmit}>
                             <Form.Group controlId="formsurname">
-                                <Form.Label>Фамилия</Form.Label>
+                                <Form.Label>ФИО</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    name="surname"
-                                    value={formData.surname}
+                                    name="fio"
+                                    value={formData.fio}
                                     onChange={handleInputChange}
                                     required
                                 />
                             </Form.Group>
 
-                            <Form.Group controlId="formname">
-                                <Form.Label>Имя</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="name1"
-                                    value={formData.name1}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </Form.Group>
 
                             <Form.Group controlId="formtelephone">
                                 <Form.Label>Телефон</Form.Label>

@@ -8,6 +8,7 @@ import '../styles/TableStyle.css';
 import { AddRequest } from '../api/requests';
 import { getType1 } from '../api/services';
 import { Link } from 'react-router-dom';
+import WorkSteps from '../component/WorkSteps'
 
 const InfoSection = () => {
   return (
@@ -15,18 +16,19 @@ const InfoSection = () => {
       <Row className="justify-content-center align-items-center">
         <Col xs={12} md={8} lg={6} className="my-3">
           <p className="text-justify" style={{ fontSize: '17px' }}>
-            Для продуктивной работы в офисе или на предприятии необходимо чтобы всё, чем пользуются сотрудники было в исправном состоянии. Если в кабинете не работает принтер, распечатка обычного бланка будет занимать много времени. Придется идти копировать документ на цифровой носитель, нести флешку в соседний кабинет и там распечатывать.
-            <br /><br />
-            Помимо принтеров существует большое количество другой оргтехники. Для такого оборудования необходимо проводить обслуживание, а случае возникновения неисправностей проводить ремонтные работы.
-            <br /><br />
+          Мы производим срочный, текущий, сервисный ремонт оргтехники. Делаем ремонт практически всей офисной техники, модульный ремонт, компонентный ремонт.
+          <br /><br />
+Специалисты нашего сервисного центра по ремонту оргтехники способны справиться со всеми видами неисправностей — устранят причину перебои и ошибки, восстановят работоспособность техники.
+<br /><br />
+В случае если восстановление работоспособности оборудования невозможно, то подберем варианты по замене устройств не хуже чем были по характеристикам.
+<br /><br />
             Наш сервисный центр предоставляет услуги по ремонту оргтехники в Арске и Атне.
-            <br /><br />
-            Сотрудничать с профессиональным центром намного удобнее. У нас современный, хорошо оснащенный сервис ремонта оргтехники, наши сертифицированные мастера способны восстановить сломанную технику любых брендов.
+           
           </p>
           
         </Col>
         <Col xs={12} md={4} lg={6} className="my-3 d-flex justify-content-center">
-          <img src="src/images/printer.jpg" alt="Printer" className="img-fluid" style={{ maxHeight: '400px' }} />
+          <img src="src/images/printerrepair.png" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
         </Col>
       </Row>
       <Row className="mt-4">
@@ -54,8 +56,7 @@ const Repair = () => {
   const [services, setServices]=React.useState([]);
   const [showModal, setShowModal] = useState(false); // Состояние для управления модальным окном
     const [formData, setFormData] = useState({
-        surname: '',
-        name1: '',
+        fio: '',
         telephone: '',
         reason: '',
     });
@@ -66,7 +67,7 @@ const Repair = () => {
     // Функция для закрытия модального окна и очистки формы
     const handleCloseModal = () => {
         setShowModal(false);
-        setFormData({ surname: '', name1: '', telephone: '', reason: '' }); // Очистка формы
+        setFormData({ fio: '', telephone: '', reason: '' }); // Очистка формы
     };
 
     // Функция для обработки изменений в форме
@@ -120,23 +121,13 @@ const Repair = () => {
                                 <Form.Label>Фамилия</Form.Label>
                                 <Form.Control
                                     type="text"
-                                    name="surname"
-                                    value={formData.surname}
+                                    name="fio"
+                                    value={formData.fio}
                                     onChange={handleInputChange}
                                     required
                                 />
                             </Form.Group>
 
-                            <Form.Group controlId="formname">
-                                <Form.Label>Имя</Form.Label>
-                                <Form.Control
-                                    type="text"
-                                    name="name1"
-                                    value={formData.name1}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </Form.Group>
 
                             <Form.Group controlId="formtelephone">
                                 <Form.Label>Телефон</Form.Label>
@@ -174,17 +165,19 @@ const Repair = () => {
                 </Modal>
             </Container>
         </div>
-
         <Container>
           <InfoSection/>
+        </Container>
+        <WorkSteps/>
+        <Container>
           <h2 className="text-center ">Цены на работы</h2>
           
           <Table striped bordered hover>
     <tbody>
         <tr>
-            <th>Услуга</th>
-            <th>Цена</th>
-            <th></th>
+            <th style={{ backgroundColor: '#0A1C6F', color: 'white' }}>Услуга</th>
+            <th style={{ backgroundColor: '#0A1C6F', color: 'white' }}>Цена</th>
+            <th style={{ backgroundColor: '#0A1C6F', color: 'white' }}></th>
         </tr>
         {
             services.map((item, index) => (
