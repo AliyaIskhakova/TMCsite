@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Container, Button, Modal, Form, Row, Col, Card, Table} from 'react-bootstrap';
 import InputMask from 'react-input-mask'; // Импорт библиотеки для маски ввода
-import '../styles/HeroSection.css'; // Импорт стилей из папки styles
+import '../styles/RapairComputer.css'; // Импорт стилей из папки styles
 import '../styles/ServicesSection.css';
 import '../styles/ContactSection.css'; // Импорт стилей
 import { AddRequest } from '../api/requests';
@@ -14,7 +14,7 @@ const InfoSection = () => {
   return (
     <div className='mt-5'>
       <Row className="justify-content-center align-items-center">
-        <Col xs={12} md={8} lg={6} className="my-3">
+        <Col xs={12} md={8} lg={6} className="">
           <p className="text-justify" style={{ fontSize: '17px' }}>
 
           Мы производим срочный, текущий, сервисный ремонт системных блоков, ноутбуков в Арске. Делаем апгрейд — увеличиваем память и объем диска, меняем процессор и видеокарту на более мощное «железо», устанавливаем более мощный блок питания. Производим ремонт материнских плат и отдельных комплектующих.
@@ -25,13 +25,37 @@ const InfoSection = () => {
 
           </p>
         </Col>
-        <Col xs={12} md={4} lg={6} className="my-3 d-flex justify-content-center">
-          <img src="src/images/printer.jpg" alt="Printer" className="img-fluid" style={{ maxHeight: '400px' }} />
+        <Col xs={12} md={4} lg={6} className="text-center">
+          <img src="src/images/repaircomp.jpg" alt="Printer" className="img-fluid" style={{ maxHeight: '400px' }} />
         </Col>
       </Row>
     </div>
   );
 };
+const InfoSection2 = () => {
+    return (
+        <Container className='main-container'>
+      <div className='mt-5'>
+        <h2 className='text-center'>Наши преимущества оказания ремонта</h2>
+        <Row className="mt-5 justify-content-center align-items-center">
+          <Col xs={12} md={8} lg={6} className="my-3">
+          <ul style={{ fontSize: '17px' }}>
+            <li>Прежде чем приступить к ремонту оборудования, мы проводим предварительную диагностику. Благодаря этому вы изначально будете знать, на какую сумму рассчитывать. В случае вашего согласия, мы приступим к ремонту оргтехники;</li>
+            <br/>
+            <li>В нашей компании вы сможете получить консультацию специалиста о том, как избежать подобных поломок в будущем;</li>
+            <br/>
+            <li>Если в процессе ремонта понадобится замена комплектующих, мы обязательно вас об этом уведомим.</li>
+            </ul>
+            
+          </Col>
+          <Col xs={12} md={4} lg={6} className="text-center">
+            <img src="src/images/repaircomputer.jpg" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
+          </Col>
+        </Row>
+      </div>
+      </Container>
+    );
+  };
 
 const RepairComputer = () => {
   const [services, setServices]=React.useState([]);
@@ -85,7 +109,7 @@ const RepairComputer = () => {
             <Container className="hero-contentRepairComputer">
                 <h1>Ремонт компьютерной техники</h1>
                 <p>
-                    Сервисный центр «Техномедиасоюз» осуществляет ремонт, обслуживание компьютерной техники в Арске и Атне.
+                    Сервисный центр «Техномедиасоюз» осуществляет ремонт компьютеров и ноутбуков
                 </p>
                 <Button variant="primary" size="lg" onClick={handleShowModal}>
                     Оставить заявку
@@ -156,19 +180,22 @@ const RepairComputer = () => {
                 </Modal>
             </Container>
         </div>
-                <Container>
+                <Container className='main-container'>
                   <InfoSection/>
                 </Container>
         
         
           <WorkSteps/>
-        <Container> 
+          <InfoSection2/>
+        <Container className='main-container'> 
+        <h2 className="text-center ">Цены на работы</h2>
+
         <Table striped bordered hover className="custom-table">
             <tbody>
               <tr>
-                <th>Услуга</th>
-                <th>Цена</th>
-                <th></th>
+              <th style={{ backgroundColor: '#0A1C6F', color: 'white' }}>Услуга</th>
+            <th style={{ backgroundColor: '#0A1C6F', color: 'white' }}>Цена</th>
+            <th style={{ backgroundColor: '#0A1C6F', color: 'white' }}></th>
               </tr>
               {services.map((item, index) => (
                 <tr key={index}>
@@ -183,6 +210,9 @@ const RepairComputer = () => {
               ))}
             </tbody>
           </Table>
+          <p className="text-muted mt-3" style={{ fontSize: '12px' }}>
+            *Цены зависят от сложности ремонта и наличия электронных компонентов. Вы всегда можете узнать цену решения проблемы по Whatsapp, Telegram или же оставить заявку на нашем сайте.
+          </p>
         </Container>
         </div>
     );

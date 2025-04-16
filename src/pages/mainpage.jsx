@@ -6,6 +6,7 @@ import '../styles/ServicesSection.css';
 import '../styles/ContactSection.css'; // Импорт стилей
 import { AddRequest } from '../api/requests';
 import { Link } from 'react-router-dom';
+import '../styles/MainPage.css';
 
 const HeroSection = () => {
     const [showModal, setShowModal] = useState(false); // Состояние для управления модальным окном
@@ -132,59 +133,70 @@ const InfoSection=()=>{
                    
     );
 }
+
 const ServicesSection = () => {
     return (
-      <Container className="mt-3 mb-5 text-center"> {/* Добавлены отступы по краям */}
- 
-            <h2 style={{fontSize:"2.5rem"}}>Наши услуги</h2>
-       
-            <Row className="mt-3 justify-content-center">
-                <Col md={4} className="my-3"> {/* Отступы между карточками */}
-                    <Card className="service-card">
-                        <Card.Img variant="top" src="src\images\f1.png" alt="Ремонт принтеров" />
-                        <Card.Body>
-                            <Card.Title>Ремонт оргтехники</Card.Title>
-                            <Card.Text>
-                                Мы предлагаем профессиональный ремонт оргтехники любой сложности.
-                            </Card.Text>
-                            <Link to="/repair" >
-                                Подробнее
-                            </Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col md={4} className="my-3"> {/* Отступы между карточками */}
-                    <Card className="service-card">
-                        <Card.Img variant="top" src="src\images\f1.png" alt="Ремонт компьютеров" />
-                        <Card.Body>
-                            <Card.Title>Ремонт компьютеров</Card.Title>
-                            <Card.Text>
-                                Быстрый и качественный ремонт компьютеров и ноутбуков.
-                            </Card.Text>
-                            <Link to="/computers" >
-                                Подробнее
-                            </Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col md={4} className="my-3"> {/* Отступы между карточками */}
-                    <Card className="service-card">
-                        <Card.Img variant="top" src="src\images\f2.png" alt="Заправка картриджей" />
-                        <Card.Body>
-                            <Card.Title>Заправка картриджей</Card.Title>
-                            <Card.Text>
-                                Заправка и восстановление картриджей для принтеров и МФУ.
-                            </Card.Text>
-                            <Link to="/refilling" >
-                                Подробнее
-                            </Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
+        <Container className="services-wrapper mt-3 mb-5">
+            <h2 className="section-title text-dark">Наши услуги</h2>
+            
+            <div className="services-container">
+                <Row className="justify-content-center">
+                    <Col lg={4} md={6} className="my-2">
+                        <Card className="service-card">
+                            <div className="image-container p-0">
+                                <Card.Img variant="top" src="src/images/repairtech.webp" alt="Ремонт принтеров" className="w-100 h-100 object-fit-cover" />
+                            </div>
+                            <Card.Body>
+                                <Card.Title >Ремонт оргтехники</Card.Title>
+                                <Card.Text className="service-description">
+                                    Профессиональный ремонт оргтехники любой сложности.
+                                </Card.Text>
+                                <Link to="/repair" className="service-link">
+                                    Подробнее <span className="arrow">→</span>
+                                </Link>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    
+                    <Col lg={4} md={6} className="my-2">
+                        <Card className="service-card">
+                            <div className="image-container p-0">
+                                <Card.Img variant="top" src="src/images/repaircomp.jpg" alt="Ремонт компьютеров" className="w-100 h-100 object-fit-cover" />
+                            </div>
+                            <Card.Body>
+                                <Card.Title>Ремонт компьютеров</Card.Title>
+                                <Card.Text className="service-description">
+                                    Быстрый и качественный ремонт компьютеров и ноутбуков.
+                                </Card.Text>
+                                <Link to="/computers" className="service-link">
+                                    Подробнее <span className="arrow">→</span>
+                                </Link>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    
+                    <Col lg={4} md={6} className="my-2">
+                        <Card className="service-card">
+                            <div className="image-container p-0">
+                                <Card.Img variant="top" src="src/images/optimize.webp" alt="Заправка картриджей" className="w-100 h-100 object-fit-cover" />
+                            </div>
+                            <Card.Body>
+                                <Card.Title>Заправка картриджей</Card.Title>
+                                <Card.Text className="service-description">
+                                    Заправка и восстановление картриджей для принтеров.
+                                </Card.Text>
+                                <Link to="/refilling" className="service-link">
+                                    Подробнее <span className="arrow">→</span>
+                                </Link>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                </Row>
+            </div>
         </Container>
     );
 };
+
 const MapComponent = () => {
     return (
       <div style={{
@@ -230,54 +242,52 @@ const MapComponent = () => {
 
   import '../styles/ExperienceSection.css';
 
-const ExperienceSection = () => {
-    return (
-        
-        <div className="experience-section">
-            <Container>
-                
-            <h2 className="h22 text-center mb-5">Почему выбирают нас?</h2>
+  import { RiHistoryLine, RiMedalLine, RiShieldCheckLine } from 'react-icons/ri';
 
-            <Row className="text-center">
-                {/* Блок 1: Соблюдаем качество */}
-                <Col md={4} className="mb-4">
-                    <div className="icon-container">
-                        <img src="src\images\k1.png" alt="Опыт работы" className="icon-image" />
-                    </div>
-                    <h3 className="h33 mt-3">Опыт работы</h3>
-                    <p className='pp'>
-                        Более 10 лет успешной работы на рынке ремонта и обслуживания оргтехники.
-                    </p>
-                </Col>
-
-                <Col md={4} className="mb-4">
-                    <div className="icon-container">
-                        <img src="src\images\k1.png" alt="Качество" className="icon-image" />
-                    </div>
-                    <h3 className="h33 mt-3">Соблюдаем качество</h3>
-                    <p className='pp'>
-                        Мы гарантируем высокое качество выполнения всех работ, используя только проверенные технологии и материалы.
-                    </p>
-                </Col>
-
-                {/* Блок 2: Даем гарантию */}
-                <Col md={4} className="mb-4">
-                    <div className="icon-container">
-                        <img src="src\images\k1.png" alt="Гарантия" className="icon-image" />
-                    </div>
-                    <h3 className="h33 mt-3">Даем гарантию</h3>
-                    <p className='pp'>
-                        На все услуги предоставляем гарантию, чтобы вы могли быть уверены в надежности нашего сервиса.
-                    </p>
-                </Col>
-
-                {/* Блок 3: Опыт работы */}
-                
-            </Row>
-            </Container>
-        </div>
-    );
-};
+  const ExperienceSection = () => {
+      return (
+          <div className="experience-section">
+              <Container>
+                  <h2 className="h22 text-center mb-5">Почему выбирают нас?</h2>
+  
+                  <Row className="text-center">
+                      {/* Блок 1: Опыт работы */}
+                      <Col md={4} className="mb-4">
+                        <div className="icon-container">
+                          <RiHistoryLine className="icon-image" size={48} />
+                        </div>
+                          <h3 className="h33 mt-3">Опыт работы</h3>
+                          <p className='pp'>
+                              Более 10 лет успешной работы на рынке ремонта и обслуживания оргтехники.
+                          </p>
+                      </Col>
+  
+                      {/* Блок 2: Качество */}
+                      <Col md={4} className="mb-4">
+                      <div className="icon-container">
+  <RiMedalLine className="icon-image" size={48} />
+</div>
+                          <h3 className="h33 mt-3">Соблюдаем качество</h3>
+                          <p className='pp'>
+                              Мы гарантируем высокое качество выполнения всех работ, используя только проверенные технологии и материалы.
+                          </p>
+                      </Col>
+  
+                      {/* Блок 3: Гарантия */}
+                      <Col md={4} className="mb-4">
+                          <div className="icon-container">
+  <RiShieldCheckLine className="icon-image" size={48} />
+</div>
+                          <h3 className="h33 mt-3">Даем гарантию</h3>
+                          <p className='pp'>
+                              На все услуги предоставляем гарантию, чтобы вы могли быть уверены в надежности нашего сервиса.
+                          </p>
+                      </Col>
+                  </Row>
+              </Container>
+          </div>
+      );
+  };
 const ReviewsComponent = () => {
       useEffect(() => {
         // Проверяем, был ли скрипт уже добавлен
@@ -316,7 +326,7 @@ const ReviewsComponent = () => {
                         <h2 className='text-center' style={{fontSize:"2.5rem", marginBottom: "1rem"}}>Что говорят клиенты</h2>
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: "column"}}>
 
-                    <p style={{ fontSize: '18px', marginBottom: "1rem", width: '80%'}}>
+                    <p style={{ fontSize: '18px', marginBottom: "1rem"}}>
                     Мы всегда рады услышать ваше мнение о нашей работе. Ваши отзывы помогают нам становиться лучше.                     А если вы уже пользовались нашими услугами, оставьте свой отзыв — нам важно знать, что мы движемся в правильном направлении!
                                             </p>
 </div>
@@ -379,8 +389,10 @@ const MainPage = () => {
             <HeroSection />
             <InfoSection/>
             <ServicesSection />
-            <ExperienceSection/>        
+            <ExperienceSection/>
+            <Container className='feedback-container'>    
             <ReviewsComponent/>
+            </Container>  
             <ContactsSection/>
         </div>
     );

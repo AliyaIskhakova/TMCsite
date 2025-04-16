@@ -1,9 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Container, Button, Modal, Form, Row, Col, Card, Table} from 'react-bootstrap';
 import InputMask from 'react-input-mask'; // Импорт библиотеки для маски ввода
-import '../styles/HeroSection.css'; // Импорт стилей из папки styles
-import '../styles/ServicesSection.css';
-import '../styles/ContactSection.css'; // Импорт стилей
+import '../styles/Repair.css'; // Импорт стилей из папки styles
 import '../styles/TableStyle.css';
 import { AddRequest } from '../api/requests';
 import { getType1 } from '../api/services';
@@ -12,10 +10,11 @@ import WorkSteps from '../component/WorkSteps'
 
 const InfoSection = () => {
   return (
+    <Container className='main-container'>
     <div className='mt-5'>
       <Row className="justify-content-center align-items-center">
-        <Col xs={12} md={8} lg={6} className="my-3">
-          <p className="text-justify" style={{ fontSize: '17px' }}>
+        <Col xs={12} md={8} lg={6} >
+          <p style={{ fontSize: '17px' }}>
           Мы производим срочный, текущий, сервисный ремонт оргтехники. Делаем ремонт практически всей офисной техники, модульный ремонт, компонентный ремонт.
           <br /><br />
 Специалисты нашего сервисного центра по ремонту оргтехники способны справиться со всеми видами неисправностей — устранят причину перебои и ошибки, восстановят работоспособность техники.
@@ -27,31 +26,58 @@ const InfoSection = () => {
           </p>
           
         </Col>
-        <Col xs={12} md={4} lg={6} className="my-3 d-flex justify-content-center">
-          <img src="src/images/printerrepair.png" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
+        <Col xs={12} md={4} lg={6} className="text-center">
+          <img src="src/images/repairtech.png" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
         </Col>
       </Row>
-      <Row className="mt-4">
-            <Col xs={12} md={6}>
-              <ul className="text-primary" style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
-                <li>Принтеры, МФУ, плоттеры; термопринтеры;</li>
-                <li>Компьютеры, ноутбуки, серверы;</li>
-                <li>Мониторы, телевизоры;</li>
-                <li>ИБП, стабилизаторы;</li>
+      <Row className="mt-4 justify-content-center">
+            <Col xs={12} md={6} lg={6}>
+              <ul className="text-primary " style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
+                <li className='mb-2'>Принтеры, МФУ, плоттеры; термопринтеры;</li>
+                <li className='mb-2'>Компьютеры, ноутбуки, серверы;</li>
+                <li className='mb-2'>Мониторы, телевизоры;</li>
+                <li className='mb-2'>ИБП, стабилизаторы;</li>
               </ul>
             </Col>
-            <Col xs={12} md={6}>
+            <Col xs={12} md={6} lg={6} >
               <ul className="text-primary" style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
-                <li>Проекторы, видеонаблюдение;</li>
-                <li>Шредеры, брошюраторы;</li>
-                <li>Ламинаторы, резаки;</li>
-                <li>Факсы и другие офисные устройства.</li>
+                <li className='mb-2'>Проекторы, видеонаблюдение;</li>
+                <li className='mb-2'>Шредеры, брошюраторы;</li>
+                <li className='mb-2'>Ламинаторы, резаки;</li>
+                <li className='mb-2'>Факсы и другие офисные устройства.</li>
               </ul>
             </Col>
           </Row>
     </div>
+    </Container>
   );
 };
+
+const InfoSection2 = () => {
+    return (
+        <Container className='main-container'>
+      <div className='mt-5'>
+        <h2 className='text-center'>Наши преимущества оказания ремонта</h2>
+        <Row className="mt-5 justify-content-center align-items-center">
+          <Col xs={12} md={8} lg={6} className="my-3">
+          <ul style={{ fontSize: '17px' }}>
+            <li>Прежде чем приступить к ремонту оборудования, мы проводим предварительную диагностику. Благодаря этому вы изначально будете знать, на какую сумму рассчитывать. В случае вашего согласия, мы приступим к ремонту оргтехники;</li>
+            <br/>
+            <li>В нашей компании вы сможете получить консультацию специалиста о том, как избежать подобных поломок в будущем;</li>
+            <br/>
+            <li>Если в процессе ремонта понадобится замена комплектующих, мы обязательно вас об этом уведомим.</li>
+            </ul>
+            
+          </Col>
+          <Col xs={12} md={4} lg={6} className="text-center">
+            <img src="src/images/printerrepair.png" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
+          </Col>
+        </Row>
+      </div>
+      </Container>
+    );
+  };
+
 const Repair = () => {
   const [services, setServices]=React.useState([]);
   const [showModal, setShowModal] = useState(false); // Состояние для управления модальным окном
@@ -104,7 +130,7 @@ const Repair = () => {
             <Container className="hero-contentRepair">
                 <h1>Ремонт и обслуживание оргтехники</h1>
                 <p>
-                    Сервисный центр «Техномедиасоюз» осуществляет ремонт, обслуживание оргтехники в Арске и Атне.
+                    Сервисный центр «Техномедиасоюз» осуществляет ремонт, обслуживание оргтехники
                 </p>
                 <Button variant="primary" size="lg" onClick={handleShowModal}>
                     Оставить заявку
@@ -165,13 +191,11 @@ const Repair = () => {
                 </Modal>
             </Container>
         </div>
-        <Container>
-          <InfoSection/>
-        </Container>
+        <InfoSection/>
         <WorkSteps/>
-        <Container>
-          <h2 className="text-center ">Цены на работы</h2>
-          
+        <InfoSection2/>
+        <Container className='main-container'>
+          <h2 className="text-center ">Цены на работы</h2>  
           <Table striped bordered hover>
     <tbody>
         <tr>

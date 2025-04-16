@@ -1,8 +1,7 @@
 
-
-.hero-sectionRefilling {
+.hero-sectionRepairComputer {
     position: relative; /* Необходимо для позиционирования псевдоэлемента */
-    background-image: url('../images/optimize.webp');
+    background-image: url('../images/кс.jpg');
     background-size: cover; /* Масштабирует изображение, чтобы оно покрывало всю область */
     background-position: center; /* Центрирует изображение */
     background-repeat: no-repeat; /* Запрещает повторение изображения */
@@ -17,19 +16,19 @@
 }
 
 /* Затемнение фона */
-.hero-sectionRefilling::before {
+.hero-sectionRepairComputer::before {
     content: ''; /* Обязательно для псевдоэлемента */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(05, 13, 54, 0.7); /* Черный цвет с прозрачностью 50% */
+    background-color: rgba(0, 0, 0, 0.5); /* Черный цвет с прозрачностью 50% */
     z-index: 1; /* Убедитесь, что затемнение находится над фоном, но под контентом */
 }
 
 /* Контент должен быть выше затемнения */
-.hero-sectionRefilling .hero-contentRefilling {
+.hero-sectionRepairComputer .hero-contentRepairComputer {
     position: relative;
     z-index: 2; /* Контент должен быть выше затемнения */
     max-width: 700px; /* Ограничиваем ширину контента */
@@ -37,7 +36,7 @@
     padding: 20px; /* Добавляем отступы внутри контейнера */
     margin: 0; /* Убираем внешние отступы */
 }
-.hero-contentRefilling {
+.hero-contentRepairComputer {
      /* Полупрозрачный черный фон для текста */
     padding: 2rem;
     border-radius: 10px;
@@ -45,216 +44,54 @@
     width: 100%; /* Занимает всю доступную ширину */
 }
 
-.hero-contentRefilling h1 {
+.hero-contentRepairComputer h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.hero-contentRefilling p {
+.hero-contentRepairComputer p {
     font-size: 1.2rem;
     margin-bottom: 2rem;
 }
 
-.hero-contentRefilling .btn {
+.hero-contentRepairComputer .btn {
     font-size: 1.2rem;
     padding: 0.75rem 2rem;
 }
 
 /* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
-    .hero-contentRefilling h1 {
+    .hero-contentRepairComputer h1 {
         font-size: 2rem; /* Уменьшаем размер заголовка на маленьких экранах */
     }
 
-    .hero-contentRefilling p {
+    .hero-contentRepairComputer p {
         font-size: 1.2rem; /* Уменьшаем размер текста на маленьких экранах */
     }
 
-    .hero-contentRefilling .btn {
+    .hero-contentRepairComputer .btn {
         font-size: 1rem; /* Уменьшаем размер кнопки на маленьких экранах */
         padding: 0.5rem 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-contentRefilling h1 {
+    .hero-contentRepairComputer h1 {
         font-size: 1.5rem; /* Еще меньше заголовок для очень маленьких экранов */
     }
 
-    .hero-contentRefilling p {
+    .hero-contentRepairComputer p {
         font-size: 1rem; /* Еще меньше текст для очень маленьких экранов */
     }
 
-    .hero-contentRefilling .btn {
+    .hero-contentRepairComputer .btn {
         font-size: 0.9rem; /* Еще меньше кнопка для очень маленьких экранов */
         padding: 0.4rem 1.2rem;
     }
 }
 
-
-.refill-calculator {
-    background-color: #DFE4FB;
-    padding: 25px;
-    border-radius: 8px;
-    margin: 30px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.refill-title {
-    color: #0A1C6F;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.refill-subtitle {
-    text-align: center;
-    color: #162774;
-    margin-bottom: 20px;
-}
-
-.search-section {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.search-input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #889DFB;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-}
-
-.search-input:focus {
-    outline: none;
-    border-color: #0E2280;
-}
-
-.loading-indicator {
-    color: #0A1C6F;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-.suggestions-list {
-    position: absolute;
-    width: 100%;
-    max-height: 300px;
-    overflow-y: auto;
-    background: white;
-    border: 1px solid #ddd;
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    z-index: 10;
-}
-
-.suggestion-item {
-    padding: 10px 15px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    color: #333;
-}
-
-.suggestion-item:hover {
-    background-color: #f0f0f0;
-}
-
-.order-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
-    border: 1px solid #ddd;
-}
-
-.service-info {
-    margin-bottom: 20px;
-}
-
-.service-info h3 {
-    margin-top: 0;
-    color: #0A1C6F;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #0A1C6F;
-}
-
-.form-input {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: #0E2280;
-}
-
-.form-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.submit-btn {
-    flex: 1;
-    padding: 12px;
-    background-color: #0E2280;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #162774;
-}
-
-.submit-btn:disabled {
-    background-color: #95a5a6;
-    cursor: not-allowed;
-}
-
-.reset-btn {
-    flex: 1;
-    padding: 12px;
-    background-color: #889DFB;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.reset-btn:hover {
-    background-color: #6a7fd8;
-}
-
-.reset-btn:disabled {
-    background-color: #95a5a6;
-    cursor: not-allowed;
-}
 .main-container {
-    max-width: 1100px !important;
+    max-width: 1200px !important;
     margin-left: auto;
     margin-right: auto;
     margin: 0 auto;

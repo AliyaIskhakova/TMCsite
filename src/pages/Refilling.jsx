@@ -1,9 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { Container, Button, Modal, Form, Row, Col, Table } from 'react-bootstrap';
 import InputMask from 'react-input-mask';
-import '../styles/HeroSection.css';
-import '../styles/ServicesSection.css';
-import '../styles/ContactSection.css';
 import { AddRequest } from '../api/requests';
 import { getType3, searchRefillServices, createRefillOrder } from '../api/services';
 import '../styles/TableStyle.css';
@@ -180,13 +177,11 @@ const InfoSection = () => {
       <Row className="justify-content-center align-items-center">
         <Col xs={12} md={8} lg={6} className="my-3">
           <p className="text-justify" style={{ fontSize: '17px' }}>
-            Для продуктивной работы в офисе или на предприятии необходимо чтобы всё, чем пользуются сотрудники было в исправном состоянии. Если в кабинете не работает принтер, распечатка обычного бланка будет занимать много времени. Придется идти копировать документ на цифровой носитель, нести флешку в соседний кабинет и там распечатывать.
-            <br /><br />
-            Помимо принтеров существует большое количество другой оргтехники. Для такого оборудования необходимо проводить обслуживание, а случае возникновения неисправностей проводить ремонтные работы.
-            <br /><br />
-            Наш сервисный центр предоставляет услуги по ремонту оргтехники в Арске и Атне.
-            <br /><br />
-            Сотрудничать с профессиональным центром намного удобнее. У нас современный, хорошо оснащенный сервис ремонта оргтехники, наши сертифицированные мастера способны восстановить сломанную технику любых брендов.
+          Мы заправляем картриджи для всех популярных моделей принтеров и МФУ в нашем сервисном центре. Работая с нами, вы будете уверены в качестве выполняемых работ и почувствуете, что печатать стало проще и экономнее.
+          <br/> <br/>
+Специалисты нашего сервисного центра по ремонту оргтехники и заправке картриджей в Арске способны справиться со всеми видами неисправностей — устранят причину зажевывания бумаги и других проблем печатного оборудования, восстановят работоспособность техники после попадания жидкости. Если ремонт устройства невозможен, мы подберем оптимальные варианты по приобретению нового аппарата.
+<br/> <br/>
+Оригинальные и совместимые картриджи, черно-белые и цветные — профессиональная заправка с гарантией качества!
           </p>
         </Col>
         <Col xs={12} md={4} lg={6} className="my-3 d-flex justify-content-center">
@@ -196,6 +191,31 @@ const InfoSection = () => {
     </div>
   );
 };
+
+const InfoSection2 = () => {
+    return (
+        <Container className='main-container'>
+      <div className='mt-5'>
+        <h2 className='text-center'>Наши преимущества</h2>
+        <Row className="mt-5 justify-content-center align-items-center">
+          <Col xs={12} md={8} lg={6} className="my-3">
+          <ul style={{ fontSize: '17px' }}>
+            <li></li>
+            <br/>
+            <li>В нашей компании вы сможете получить консультацию специалиста о том, как избежать подобных поломок в будущем;</li>
+            <br/>
+            <li>Если в процессе ремонта понадобится замена комплектующих, мы обязательно вас об этом уведомим.</li>
+            </ul>
+            
+          </Col>
+          <Col xs={12} md={4} lg={6} className="text-center">
+            <img src="src/images/printerrepair.png" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
+          </Col>
+        </Row>
+      </div>
+      </Container>
+    );
+  };
 
 const Refilling = () => {
   const [services, setServices] = useState([]);
@@ -245,11 +265,11 @@ const Refilling = () => {
   return (
     <AppContext.Provider value={appContextValue}>
       <div>
-        <div className="hero-sectionRepair">
-          <Container className="hero-contentRepair">
-            <h1>Ремонт и обслуживание оргтехники</h1>
+        <div className="hero-sectionRefilling">
+          <Container className="hero-contentRefilling">
+            <h1>Заправка картриджей</h1>
             <p>
-              Сервисный центр «Техномедиасоюз» осуществляет ремонт, обслуживание оргтехники в Арске и Атне.
+              Сервисный центр «Техномедиасоюз» осуществляет ремонт оргтехники и заправку картриджей
             </p>
             <Button 
               variant="primary" 
@@ -322,40 +342,12 @@ const Refilling = () => {
           </Container>
         </div>
         
-        <Container>
+        <Container className='main-container'>
           <InfoSection />
           <CartridgeCalculator />
           </Container>
           <WorkSteps/>
-          <Container>
-          <Table striped bordered hover className="custom-table">
-            <thead>
-              <tr>
-                <th style={{ backgroundColor: '#0A1C6F', color: 'white' }}>Услуга</th>
-                <th style={{ backgroundColor: '#0A1C6F', color: 'white' }}>Цена</th>
-                <th style={{ backgroundColor: '#0A1C6F', color: 'white' }}></th>
-              </tr>
-            </thead>
-            <tbody>
-              {services.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.name}</td>
-                  <td>от {item.cost} руб.</td>
-                  <td>
-                    <Button 
-                      variant="outline-primary" 
-                      size="sm" 
-                      onClick={handleShowModal}
-                      style={{ color: '#0E2280', borderColor: '#0E2280' }}
-                    >
-                      Оставить заявку
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        </Container>
+          <InfoSection2/>
       </div>
     </AppContext.Provider>
   );
