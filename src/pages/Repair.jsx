@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Container, Button, Modal, Form, Row, Col, Card, Table} from 'react-bootstrap';
 import InputMask from 'react-input-mask'; // Импорт библиотеки для маски ввода
 import '../styles/Repair.css'; // Импорт стилей из папки styles
-import '../styles/TableStyle.css';
 import { AddRequest } from '../api/requests';
 import { getType1 } from '../api/services';
 import { Link } from 'react-router-dom';
@@ -30,21 +29,21 @@ const InfoSection = () => {
           <img src="src/images/repairtech.png" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
         </Col>
       </Row>
-      <Row className="mt-4 justify-content-center">
+      <Row className="mt-2 justify-content-center">
             <Col xs={12} md={6} lg={6}>
-              <ul className="text-primary " style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
+              <ul className="text-primary " style={{ listStyleType: 'disc', paddingLeft: '20px', fontSize: '16px' }}>
                 <li className='mb-2'>Принтеры, МФУ, плоттеры; термопринтеры;</li>
                 <li className='mb-2'>Компьютеры, ноутбуки, серверы;</li>
                 <li className='mb-2'>Мониторы, телевизоры;</li>
-                <li className='mb-2'>ИБП, стабилизаторы;</li>
+                <li className='mb-4'>ИБП, стабилизаторы;</li>
               </ul>
             </Col>
             <Col xs={12} md={6} lg={6} >
-              <ul className="text-primary" style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
+              <ul className="text-primary" style={{ listStyleType: 'disc', paddingLeft: '20px', fontSize: '16px' }}>
                 <li className='mb-2'>Проекторы, видеонаблюдение;</li>
                 <li className='mb-2'>Шредеры, брошюраторы;</li>
                 <li className='mb-2'>Ламинаторы, резаки;</li>
-                <li className='mb-2'>Факсы и другие офисные устройства.</li>
+                <li className='mb-4'>Факсы и другие офисные устройства.</li>
               </ul>
             </Col>
           </Row>
@@ -56,10 +55,10 @@ const InfoSection = () => {
 const InfoSection2 = () => {
     return (
         <Container className='main-container'>
-      <div className='mt-5'>
+      <div className='mt-4'>
         <h2 className='text-center'>Наши преимущества оказания ремонта</h2>
-        <Row className="mt-5 justify-content-center align-items-center">
-          <Col xs={12} md={8} lg={6} className="my-3">
+        <Row className="my-4 justify-content-center align-items-center">
+          <Col xs={12} md={8} lg={6} className="">
           <ul style={{ fontSize: '17px' }}>
             <li>Прежде чем приступить к ремонту оборудования, мы проводим предварительную диагностику. Благодаря этому вы изначально будете знать, на какую сумму рассчитывать. В случае вашего согласия, мы приступим к ремонту оргтехники;</li>
             <br/>
@@ -70,7 +69,7 @@ const InfoSection2 = () => {
             
           </Col>
           <Col xs={12} md={4} lg={6} className="text-center">
-            <img src="src/images/printerrepair.png" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
+            <img src="src/images/printerrepair.png" alt="Printer" className="img-fluid" style={{ maxHeight: '250px' }} />
           </Col>
         </Row>
       </div>

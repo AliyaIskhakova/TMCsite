@@ -3,177 +3,16 @@ import { Container, Button, Modal, Form, Row, Col, Table } from 'react-bootstrap
 import InputMask from 'react-input-mask';
 import { AddRequest } from '../api/requests';
 import { getType3, searchRefillServices, createRefillOrder } from '../api/services';
-import '../styles/TableStyle.css';
+
 import '../styles/Refilling.css'; // Добавляем стили для калькулятора
 import WorkSteps from '../component/WorkSteps';
+import CartridgeCalculator from '../component/CartridgeCalculator.jsx'
 
 const AppContext = createContext();
 
-const CartridgeCalculator = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredServices, setFilteredServices] = useState([]);
-  const [selectedService, setSelectedService] = useState(null);
-  const [fio, setCustomerName] = useState('');
-  const [telephone, setPhoneNumber] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (searchQuery.trim().length > 1) {
-        searchServices();
-      } else {
-        setFilteredServices([]);
-      }
-    }, 300);
-
-    return () => clearTimeout(timer);
-  }, [searchQuery]);
-
-  const searchServices = async () => {
-    setIsLoading(true);
-    try {
-      const data = await searchRefillServices(searchQuery);
-      setFilteredServices(data);
-    } catch (error) {
-      console.error('Ошибка поиска:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleSubmitOrder = async (e) => {
-    e.preventDefault();
-    if (!selectedService || !fio || !telephone) {
-      alert('Пожалуйста, заполните все обязательные поля');
-      return;
-    }
-
-    try {
-      setIsLoading(true);
-      await createRefillOrder({
-        fio: fio,
-        telephone: telephone,
-        reason: selectedService.name
-      });
-      alert('Заказ на заправку успешно оформлен!');
-      resetForm();
-    } catch (error) {
-      console.error('Ошибка оформления заказа:', error);
-      alert('Произошла ошибка при оформлении заказа');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const resetForm = () => {
-    setSelectedService(null);
-    setCustomerName('');
-    setPhoneNumber('');
-    setSearchQuery('');
-  };
-
-  return (
-    <div className="refill-calculator">
-      <h2 className="refill-title">Калькулятор заправки картриджей</h2>
-      <p className="refill-subtitle">Узнайте стоимость заправки вашего картриджа</p>
-
-      <div className="search-section">
-        <input
-          type="text"
-          value={selectedService ? selectedService.name : searchQuery}
-          onChange={(e) => {
-            setSearchQuery(e.target.value);
-            if (selectedService) setSelectedService(null);
-          }}
-          placeholder="Введите модель принтера или картриджа"
-          className="search-input"
-          disabled={isLoading}
-        />
-        
-        {isLoading && <div className="loading-indicator">Поиск...</div>}
-        
-        {!isLoading && searchQuery && !selectedService && filteredServices.length > 0 && (
-          <ul className="suggestions-list">
-            {filteredServices.map(service => (
-              <li 
-                key={service.idService}
-                onClick={() => {
-                  setSelectedService(service);
-                  setSearchQuery('');
-                }}
-                className="suggestion-item"
-              >
-                {service.name} - {service.cost} ₽
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      {selectedService && (
-        <form onSubmit={handleSubmitOrder} className="order-form">
-          <div className="service-info">
-            <h3>Выбранная услуга:</h3>
-            <p><strong>{selectedService.name}</strong></p>
-            <p>Стоимость: <strong>{selectedService.cost} ₽</strong></p>
-          </div>
-
-          <div className="form-group">
-            <label>Ваше ФИО:</label>
-            <input
-              type="text"
-              value={fio}
-              onChange={(e) => setCustomerName(e.target.value)}
-              required
-              className="form-input"
-            />
-          </div>
-
-          <div className="form-group">
-            <label>Телефон:</label>
-            <InputMask
-              mask="+7(999)999-99-99"
-              value={telephone}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              required
-            >
-              {(inputProps) => (
-                <input
-                  {...inputProps}
-                  type="tel"
-                  className="form-input"
-                  placeholder="+7 (___) ___-__-__"
-                />
-              )}
-            </InputMask>
-          </div>
-
-          <div className="form-actions">
-            <button 
-              type="submit" 
-              className="submit-btn"
-              disabled={isLoading}
-            >
-              {isLoading ? 'Оформление...' : 'ОФОРМИТЬ ЗАКАЗ'}
-            </button>
-            <button 
-              type="button"
-              onClick={resetForm}
-              className="reset-btn"
-              disabled={isLoading}
-            >
-              ОЧИСТИТЬ
-            </button>
-          </div>
-        </form>
-      )}
-    </div>
-  );
-};
-
 const InfoSection = () => {
   return (
-    <div className='mt-5'>
+    <div className='mt-5 mb-3'>
       <Row className="justify-content-center align-items-center">
         <Col xs={12} md={8} lg={6} className="my-3">
           <p className="text-justify" style={{ fontSize: '17px' }}>
@@ -195,21 +34,26 @@ const InfoSection = () => {
 const InfoSection2 = () => {
     return (
         <Container className='main-container'>
-      <div className='mt-5'>
+      <div className='mt-4'>
         <h2 className='text-center'>Наши преимущества</h2>
-        <Row className="mt-5 justify-content-center align-items-center">
-          <Col xs={12} md={8} lg={6} className="my-3">
+        <Row className="my-4 justify-content-center align-items-center">
+          <Col xs={12} md={8} lg={6} className="">
           <ul style={{ fontSize: '17px' }}>
-            <li></li>
+            <li><b>Оперативно.</b> Заправка картриджа составляет 20 минут, в нашем сервисном центре.</li>
             <br/>
-            <li>В нашей компании вы сможете получить консультацию специалиста о том, как избежать подобных поломок в будущем;</li>
+            <li><b>Надежно.</b> Используем только качесвенный тонер.</li>
             <br/>
-            <li>Если в процессе ремонта понадобится замена комплектующих, мы обязательно вас об этом уведомим.</li>
+            <li><b>Качественный тонер.</b> Используем профессиональное оборудование для заправки картриджей</li>
+            <br/>
+            <li><b>Контроль качества.</b> Гарантированно высокое качество печати после заправки картриджа.
+            </li>
+            <br/>
+            <li><b>Опыт работы более 10 лет.</b>Высокая квалификация персонала, которая обеспечивает правильную и долговечную работу техники.</li>
             </ul>
             
           </Col>
           <Col xs={12} md={4} lg={6} className="text-center">
-            <img src="src/images/printerrepair.png" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
+            <img src="src/images/optimize.webp" alt="Printer" className="img-fluid" style={{ maxHeight: '300px' }} />
           </Col>
         </Row>
       </div>
@@ -273,9 +117,7 @@ const Refilling = () => {
             </p>
             <Button 
               variant="primary" 
-              size="lg" 
               onClick={handleShowModal}
-              style={{ backgroundColor: '#0E2280', borderColor: '#0E2280' }}
             >
               Оставить заявку
             </Button>

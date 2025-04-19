@@ -1,18 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Container, Button, Modal, Form, Row, Col, Card, Table} from 'react-bootstrap';
 import InputMask from 'react-input-mask'; // Импорт библиотеки для маски ввода
-import '../styles/RapairComputer.css'; // Импорт стилей из папки styles
-import '../styles/ServicesSection.css';
-import '../styles/ContactSection.css'; // Импорт стилей
+import '../styles/RapairComputer.css'; 
 import { AddRequest } from '../api/requests';
 import { getType2 } from '../api/services';
 import { Link } from 'react-router-dom';
-import '../styles/TableStyle.css';
 import WorkSteps from '../component/WorkSteps';
 
 const InfoSection = () => {
   return (
-    <div className='mt-5'>
+    <div className='mt-5 mb-4'>
       <Row className="justify-content-center align-items-center">
         <Col xs={12} md={8} lg={6} className="">
           <p className="text-justify" style={{ fontSize: '17px' }}>
@@ -35,10 +32,10 @@ const InfoSection = () => {
 const InfoSection2 = () => {
     return (
         <Container className='main-container'>
-      <div className='mt-5'>
+      <div className='mt-4'>
         <h2 className='text-center'>Наши преимущества оказания ремонта</h2>
-        <Row className="mt-5 justify-content-center align-items-center">
-          <Col xs={12} md={8} lg={6} className="my-3">
+        <Row className="my-4 justify-content-center align-items-center">
+          <Col xs={12} md={8} lg={6} className="">
           <ul style={{ fontSize: '17px' }}>
             <li>Прежде чем приступить к ремонту оборудования, мы проводим предварительную диагностику. Благодаря этому вы изначально будете знать, на какую сумму рассчитывать. В случае вашего согласия, мы приступим к ремонту оргтехники;</li>
             <br/>
