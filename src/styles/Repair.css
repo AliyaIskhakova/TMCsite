@@ -1,46 +1,43 @@
 .hero-sectionRepair {
-    position: relative; /* Необходимо для позиционирования псевдоэлемента */
+    position: relative; 
     background-image: url('../images/printeroffice.jpg');
-    background-size: cover; /* Масштабирует изображение, чтобы оно покрывало всю область */
-    background-position: center; /* Центрирует изображение */
-    background-repeat: no-repeat; /* Запрещает повторение изображения */
-    height: 85vh; /* Высота секции на весь экран */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 85vh; 
     display: flex;
-    align-items: center; /* Выравниваем контент по вертикали по центру */
-    justify-content: center; /* Выравниваем контент по горизонтали по центру */
+    align-items: center; 
+    justify-content: center; 
     color: white;
     text-align: center;
-    padding: 0 20px; /* Убираем отступ сверху, оставляем только по бокам */
-    margin: 0; /* Убираем внешние отступы */
+    padding: 0 20px; 
+    margin: 0; 
 }
 
-/* Затемнение фона */
 .hero-sectionRepair::before {
-    content: ''; /* Обязательно для псевдоэлемента */
+    content: ''; 
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(4, 11, 45, 0.592); /* Черный цвет с прозрачностью 50% */
-    z-index: 1; /* Убедитесь, что затемнение находится над фоном, но под контентом */
+    background-color: rgba(4, 11, 45, 0.592); 
+    z-index: 1; 
 }
 
-/* Контент должен быть выше затемнения */
 .hero-sectionRepair .hero-contentRepair {
     position: relative;
-    z-index: 2; /* Контент должен быть выше затемнения */
-    max-width: 700px; /* Ограничиваем ширину контента */
-    width: 100%; /* Занимает всю доступную ширину, но не более max-width */
-    padding: 20px; /* Добавляем отступы внутри контейнера */
-    margin: 0; /* Убираем внешние отступы */
+    z-index: 2; 
+    max-width: 700px; 
+    width: 100%; 
+    padding: 20px; 
+    margin: 0; 
 }
 .hero-contentRepair {
-     /* Полупрозрачный черный фон для текста */
     padding: 2rem;
     border-radius: 10px;
-    max-width: 800px; /* Ограничиваем ширину контента */
-    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 800px; 
+    width: 100%;
 }
 
 .hero-contentRepair h1 {
@@ -58,33 +55,32 @@
     padding: 0.75rem 2rem;
 }
 
-/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
     .hero-contentRepair h1 {
-        font-size: 2rem; /* Уменьшаем размер заголовка на маленьких экранах */
+        font-size: 2rem;
     }
 
     .hero-contentRepair p {
-        font-size: 1.2rem; /* Уменьшаем размер текста на маленьких экранах */
+        font-size: 1.2rem; 
     }
 
     .hero-contentRepair .btn {
-        font-size: 1rem; /* Уменьшаем размер кнопки на маленьких экранах */
+        font-size: 1rem; 
         padding: 0.5rem 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .hero-contentRepair h1 {
-        font-size: 1.5rem; /* Еще меньше заголовок для очень маленьких экранов */
+        font-size: 1.5rem; 
     }
 
     .hero-contentRepair p {
-        font-size: 1rem; /* Еще меньше текст для очень маленьких экранов */
+        font-size: 1rem; 
     }
 
     .hero-contentRepair .btn {
-        font-size: 0.9rem; /* Еще меньше кнопка для очень маленьких экранов */
+        font-size: 0.9rem; 
         padding: 0.4rem 1.2rem;
     }
 }

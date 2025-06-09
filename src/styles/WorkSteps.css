@@ -1,4 +1,4 @@
-/* Основные стили компонента */
+
 .work-steps-section {
     padding: 3rem 0;
     background-color: #DFE4FB;
@@ -18,7 +18,6 @@
     flex-wrap: nowrap;
 }
 
-/* Стили для каждого этапа */
 .work-step-item {
     text-align: center;
     flex: 1;
@@ -60,7 +59,6 @@
     line-height: 1.5;
 }
 
-/* Стили для стрелок */
 .work-step-arrow {
     display: flex;
     align-items: center;
@@ -75,7 +73,6 @@
     opacity: 0.7;
 }
 
-/* Адаптация для разных экранов */
 @media (max-width: 992px) {
     .work-step-circle {
         width: 80px;
