@@ -81,7 +81,7 @@ const InfoSection2 = () => {
 
 const Repair = () => {
   const [services, setServices]=React.useState([]);
-  
+  const [selectedSService, setSelectedService] = React.useState('');
   const [showModal, setShowModal] = useState(false);
     const [formData, setFormData] = useState({
         fio: '',
@@ -107,12 +107,17 @@ const Repair = () => {
         if (formData.reason) validateReason(formData.reason);
     }, [formData.fio, formData.reason]);
   
-    const handleShowModal = () => setShowModal(true);
+   const handleShowModal = (serviceName = '') => {
+    setSelectedService(serviceName);  
+    setShowModal(true);
+    
+  };
   
     const handleCloseModal = () => {
         setShowModal(false);
         setFormData({ fio: '', telephone: '', email: '', reason: '' });
         setErrors({ fio: '', telephone: '', email: '', reason: '' });
+        setSelectedService('');
     };
   
     const showNotification = (variant, message) => {
@@ -181,10 +186,16 @@ const Repair = () => {
         if (!isFormValid) {
             return;
         }
-  
+
         try {
-            await AddRequest(formData);
-            console.log('Форма отправлена:', formData);
+            const requestData = {
+            ...formData
+            };
+            if (selectedSService!=null) {
+              requestData.reason = `Услуга: ${selectedSService}\nОписание проблемы: ${formData.reason}`
+            };
+            await AddRequest(requestData);
+            console.log('Форма отправлена:', requestData);
             showNotification('success', 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
             handleCloseModal();
         } catch (error) {
@@ -236,7 +247,7 @@ const Repair = () => {
                 <p>
                     Сервисный центр «ТехноМедиаСоюз» осуществляет ремонт, обслуживание оргтехники
                 </p>
-                <Button variant="primary" size="lg" onClick={handleShowModal}>
+                <Button variant="primary" size="lg" onClick={() => handleShowModal(null)}>
                     Оставить заявку
                 </Button>
                 <Modal show={showModal} onHide={handleCloseModal} centered >
@@ -377,7 +388,7 @@ const Repair = () => {
                     <td>{item.name}</td>
                     <td>от {item.cost} руб.</td>
                     <td>
-                        <Button variant="outline-primary" size="sm" onClick={handleShowModal}>
+                        <Button variant="outline-primary" size="sm" onClick={() => handleShowModal(item.name)}>
                             Оставить заявку
                         </Button>
                     </td>

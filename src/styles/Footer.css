@@ -2,19 +2,19 @@
 .footer {
     padding: 2rem 0;
     
-    background-color: #051354; /* Темно-синий фон */
-    color: #ffffff; /* Белый текст */
+    background-color: #051354; 
+    color: #ffffff; 
 }
 
 .footer h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #ffffff; /* Белый цвет для заголовков */
+    color: #ffffff; 
 }
 
 .footer p {
     font-size: 1rem;
-    color: #e0e0e0; /* Светло-серый цвет для текста */
+    color: #e0e0e0; 
     line-height: 1.6;
 }
 
@@ -28,22 +28,21 @@
 }
 
 .footer-links a {
-    color: #e0e0e0; /* Светло-серый цвет для ссылок */
+    color: #e0e0e0; 
     text-decoration: none;
 }
 
 .footer-links a:hover {
-    color: #ffffff; /* Белый цвет при наведении */
+    color: #ffffff; 
     text-decoration: underline;
 }
 
 .copyright {
     font-size: 0.9rem;
-    color: #e0e0e0; /* Светло-серый цвет для копирайта */
+    color: #e0e0e0; 
     margin-top: 1rem;
 }
 
-/* Стили для иконок соцсетей */
 .social-links {
     margin-top: 1rem;
 }
@@ -54,35 +53,34 @@
 }
 
 .social-icon {
-    width: 32px; /* Размер иконок */
+    width: 32px; 
     height: 32px;
     transition: transform 0.3s ease;
 }
 
 .social-icon:hover {
-    transform: scale(1.1); /* Увеличиваем иконку при наведении */
+    transform: scale(1.1); 
 }
 
-/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
     .footer h3 {
-        font-size: 1.25rem; /* Уменьшаем размер заголовка на мобильных устройствах */
+        font-size: 1.25rem; 
     }
 
     .footer p {
-        font-size: 0.9rem; /* Уменьшаем размер текста на мобильных устройствах */
+        font-size: 0.9rem; 
     }
 
     .footer-links a {
-        font-size: 0.9rem; /* Уменьшаем размер ссылок на мобильных устройствах */
+        font-size: 0.9rem; 
     }
 
     .copyright {
-        font-size: 0.8rem; /* Уменьшаем размер копирайта на мобильных устройствах */
+        font-size: 0.8rem; 
     }
 
     .social-icon {
-        width: 28px; /* Уменьшаем размер иконок на мобильных устройствах */
+        width: 28px; 
         height: 28px;
     }
 }

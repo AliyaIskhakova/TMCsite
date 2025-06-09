@@ -19,8 +19,6 @@ const Footer = () => {
                         </p>
                     </Col>
                     
-
-                    {/* Колонка 2: Ссылки */}
                     <Col md={4} className="mb-4">
                         <h3>Ссылки</h3>
                         <ul className="footer-links">
@@ -31,7 +29,7 @@ const Footer = () => {
                                 <Link to="/repair">Ремонт принтеров</Link>
                             </li>
                             <li>
-                                <Link to="/computers">Ремонт компьютеров</Link>
+                                <Link to="/repaircomputer">Ремонт компьютеров</Link>
                             </li>
                             <li>
                                 <Link to="/refilling">Заправка картриджей</Link>
@@ -39,22 +37,19 @@ const Footer = () => {
                         </ul>
                     </Col>
 
-                    {/* Колонка 3: Копирайт */}
-                    {/* Колонка 1: Контакты */}
                     <Col md={4} className="mb-4">
                         <h3>Контакты</h3>
                         <p>
-                            <strong>Телефон:</strong> +7 (123) 456-78-90
+                            <strong>Телефон:</strong> +7 (937) 527-92-49
                         </p>
                         <p>
-                            <strong>Почта:</strong> info@technomediasouz.ru
+                            <strong>Почта:</strong> servicetmsouz@mail.ru
                         </p>
                         <p>
-                            <strong>Адрес:</strong> г. Арск, Советская пл., 22.
+                            <strong>Адрес:</strong> г. Арск, Советская площадь 22.
                         </p>
-                        {/* Ссылки на соцсети */}
                         <div className="social-links">
-                            <a href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer">
+                            <a href="https://t.me/RemontTMS" target="_blank" rel="noopener noreferrer">
                                 <img src="src\images\telegramm.png" alt="Telegram" className="social-icon" />
                             </a>
                             <a href="https://wa.me/79375279249" target="_blank" rel="noopener noreferrer">

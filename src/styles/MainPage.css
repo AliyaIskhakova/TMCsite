@@ -1,46 +1,44 @@
 .hero-section {
-    position: relative; /* Необходимо для позиционирования псевдоэлемента */
+    position: relative; 
     background-image: url('../images/fon1.jpg');
-    background-size: cover; /* Масштабирует изображение, чтобы оно покрывало всю область */
-    background-position: center; /* Центрирует изображение */
-    background-repeat: no-repeat; /* Запрещает повторение изображения */
-    height: 85vh; /* Высота секции на весь экран */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    height: 85vh; 
     display: flex;
-    align-items: center; /* Выравниваем контент по вертикали по центру */
-    justify-content: center; /* Выравниваем контент по горизонтали по центру */
+    align-items: center; 
+    justify-content: center; 
     color: white;
     text-align: center;
-    padding: 0 20px; /* Убираем отступ сверху, оставляем только по бокам */
-    margin: 0; /* Убираем внешние отступы */
+    padding: 0 20px; 
+    margin: 0; 
 }
 
-/* Затемнение фона */
 .hero-section::before {
-    content: ''; /* Обязательно для псевдоэлемента */
+    content: ''; 
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.35); /* Черный цвет с прозрачностью 50% */
-    z-index: 1; /* Убедитесь, что затемнение находится над фоном, но под контентом */
+    background-color: rgba(0, 0, 0, 0.35); 
+    z-index: 1; 
 }
 
-/* Контент должен быть выше затемнения */
+
 .hero-section .hero-content {
     position: relative;
-    z-index: 2; /* Контент должен быть выше затемнения */
-    max-width: 700px; /* Ограничиваем ширину контента */
-    width: 100%; /* Занимает всю доступную ширину, но не более max-width */
-    padding: 20px; /* Добавляем отступы внутри контейнера */
-    margin: 0; /* Убираем внешние отступы */
+    z-index: 2; 
+    max-width: 700px;
+    width: 100%; 
+    padding: 20px; 
+    margin: 0; 
 }
 .hero-content {
-     /* Полупрозрачный черный фон для текста */
     padding: 2rem;
     border-radius: 10px;
-    max-width: 800px; /* Ограничиваем ширину контента */
-    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 800px; 
+    width: 100%; 
 }
 
 .hero-content h1 {
@@ -58,49 +56,46 @@
     padding: 0.75rem 2rem;
 }
 
-/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 2rem; /* Уменьшаем размер заголовка на маленьких экранах */
+        font-size: 2rem; 
     }
 
     .hero-content p {
-        font-size: 1.2rem; /* Уменьшаем размер текста на маленьких экранах */
+        font-size: 1.2rem; 
     }
 
     .hero-content .btn {
-        font-size: 1rem; /* Уменьшаем размер кнопки на маленьких экранах */
+        font-size: 1rem; 
         padding: 0.5rem 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
     .hero-content h1 {
-        font-size: 1.5rem; /* Еще меньше заголовок для очень маленьких экранов */
+        font-size: 1.5rem; 
     }
 
     .hero-content p {
-        font-size: 1rem; /* Еще меньше текст для очень маленьких экранов */
+        font-size: 1rem; 
     }
 
     .hero-content .btn {
-        font-size: 0.9rem; /* Еще меньше кнопка для очень маленьких экранов */
+        font-size: 0.9rem;
         padding: 0.4rem 1.2rem;
     }
 }
 
 
-/* styles/ExperienceSection.css */
 .experience-section {
     padding: 2rem 0;
-    background-color: #DFE4FB; /* Светлый фон для секции */
-    margin: 0 ; /* Убираем отступы по краям у фона */
+    background-color: #DFE4FB; 
+    margin: 0 ; 
 }
 
 .experience-section .container {
-    max-width: 1100px; /* Ограничение ширины контента */
-    margin: 0 auto; /* Центрируем контент */
-     /* Добавляем отступы для контента */
+    max-width: 1100px; 
+    margin: 0 auto; 
 }
 
 .icon-container {
@@ -108,144 +103,138 @@
 }
 
 .icon-image {
-    width: 80px; /* Размер изображений */
+    width: 80px; 
     height: 80px;
-    object-fit: cover; /* Сохраняем пропорции */
+    object-fit: cover; 
 }
 
 .h22 {
-    font-size: 2.5rem; /* Размер заголовка по умолчанию */
-    color: #01125C; /* Цвет заголовка */
+    font-size: 2.5rem;
+    color: #01125C; 
     margin-bottom: 2rem;
 }
 
 .h33 {
-    font-size: 1.75rem; /* Размер подзаголовка по умолчанию */
-    color: #01125C; /* Цвет подзаголовков */
+    font-size: 1.75rem;
+    color: #01125C; 
     margin-bottom: 1rem;
 }
 
 .pp {
-    font-size: 1rem; /* Размер текста по умолчанию */
-    color: #555; /* Цвет текста */
+    font-size: 1rem; 
+    color: #555; 
     line-height: 1.6;
 }
 
-/* Медиа-запросы для адаптивности */
 @media (max-width: 992px) {
     .h22 {
-        font-size: 2rem; /* Уменьшаем размер заголовка на планшетах */
+        font-size: 2rem; 
     }
 
     .h33 {
-        font-size: 1.5rem; /* Уменьшаем размер подзаголовка на планшетах */
+        font-size: 1.5rem; 
     }
 
     .pp {
-        font-size: 0.9rem; /* Уменьшаем размер текста на планшетах */
+        font-size: 0.9rem; 
     }
 }
 
 @media (max-width: 768px) {
     .h22 {
-        font-size: 1.75rem; /* Уменьшаем размер заголовка на мобильных устройствах */
+        font-size: 1.75rem; 
     }
 
     .h33 {
-        font-size: 1.25rem; /* Уменьшаем размер подзаголовка на мобильных устройствах */
+        font-size: 1.25rem; 
     }
 
     .pp {
-        font-size: 0.85rem; /* Уменьшаем размер текста на мобильных устройствах */
+        font-size: 0.85rem; 
     }
 }
 
 @media (max-width: 576px) {
     .h22 {
-        font-size: 1.5rem; /* Еще меньше размер заголовка на очень маленьких экранах */
+        font-size: 1.5rem; 
     }
 
     .h33 {
-        font-size: 1.1rem; /* Еще меньше размер подзаголовка на очень маленьких экранах */
+        font-size: 1.1rem; 
     }
 
     .pp {
-        font-size: 0.8rem; /* Еще меньше размер текста на очень маленьких экранах */
+        font-size: 0.8rem; 
     }
 }
 
-/* styles/ContactsSection.css */
 .contacts-section {
     padding: 2rem;
-    background-color: #DFE4FB; /* Белый фон для секции */
+    background-color: #DFE4FB; 
     margin: 0;
     padding: 0%;
 }
 
 .contacts-section h2 {
-    /*font-size: 2.5rem; /* Размер заголовка */
     margin: 0;
     padding: 0%;}
 
 .contacts-section h3 {
-    /*font-size: 1.75rem; /* Размер подзаголовка */
-    color: #1A1A1A; /* Цвет подзаголовков */
+    color: #1A1A1A; 
     margin: 1rem;
     padding: 0%;
 }
 
 .contacts-section p {
-    font-size: 1rem; /* Размер текста */
-    color: #1A1A1A; /* Цвет текста */
+    font-size: 1rem; 
+    color: #1A1A1A; 
     margin: 0.25rem;
     padding: 0%;
 }
 
 
-/* Медиа-запросы для адаптивности */
 @media (max-width: 992px) {
     .contacts-section h2 {
-        font-size: 2rem; /* Уменьшаем размер заголовка на планшетах */
+        font-size: 2rem; 
     }
 
     .contacts-section h3 {
-        font-size: 1.5rem; /* Уменьшаем размер подзаголовка на планшетах */
+        font-size: 1.5rem;
     }
 
     .contacts-section p {
-        font-size: 0.9rem; /* Уменьшаем размер текста на планшетах */
+        font-size: 0.9rem; 
     }
 }
 
 @media (max-width: 768px) {
     .contacts-section h2 {
-        font-size: 1.75rem; /* Уменьшаем размер заголовка на мобильных устройствах */
+        font-size: 1.75rem; 
     }
 
     .contacts-section h3 {
-        font-size: 1.25rem; /* Уменьшаем размер подзаголовка на мобильных устройствах */
+        font-size: 1.25rem; 
     }
 
     .contacts-section p {
-        font-size: 0.85rem; /* Уменьшаем размер текста на мобильных устройствах */
+        font-size: 0.85rem; 
     }
 }
 
 @media (max-width: 576px) {
     .contacts-section h2 {
-        font-size: 1.5rem; /* Еще меньше размер заголовка на очень маленьких экранах */
+        font-size: 1.5rem;
     }
 
     .contacts-section h3 {
-        font-size: 1.1rem; /* Еще меньше размер подзаголовка на очень маленьких экранах */
+        font-size: 1.1rem; 
     }
 
     .contacts-section p {
-        font-size: 0.8rem; /* Еще меньше размер текста на очень маленьких экранах */
+        font-size: 0.8rem; 
     }
 }
 
-/* Основные стили контейнера */
 .services-wrapper {
     max-width: 1140px;
     margin: 0 auto;
@@ -254,7 +243,7 @@
 
 .section-title {
     font-size: 2.5rem;
-    color: #000000 !important; /* Черный цвет заголовка */
+    color: #000000 !important; 
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -264,14 +253,13 @@
     margin: 0 auto;
 }
 
-/* Стили карточек */
 .service-card {
     transition: all 0.3s ease;
     border: none;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #051354 !important; /* Оригинальный цвет карточек */
+    background-color: #051354 !important; 
     color: white;
     height: 100%;
 }
@@ -283,20 +271,20 @@
 
 .image-container {
     width: 100%;
-    height: 180px; /* Увеличил высоту контейнера */
+    height: 180px; 
     background-color: white;
-    overflow: hidden; /* Обрезаем выходящие за границы части */
+    overflow: hidden; 
 }
 
 .service-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Полное заполнение пространства */
+    object-fit: cover; 
     transition: transform 0.3s ease;
 }
 
 .service-card:hover img {
-    transform: scale(1.05); /* Легкое увеличение при наведении */
+    transform: scale(1.05); 
 }
 
 .card-body {
@@ -318,7 +306,6 @@
     line-height: 1.5;
 }
 
-/* Стили ссылки */
 .service-link {
     color: white !important;
     text-decoration: none !important;
@@ -360,7 +347,6 @@
     transform: scaleX(1.1);
 }
 
-/* Адаптивность */
 @media (max-width: 992px) {
     .services-container {
         max-width: 720px;

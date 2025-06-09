@@ -1,10 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Container, Button, Modal, Form, Row, Col, Card, Table, Alert, InputGroup} from 'react-bootstrap';
-import InputMask from 'react-input-mask'; // Импорт библиотеки для маски ввода
+import InputMask from 'react-input-mask';
 import '../styles/RapairComputer.css'; 
 import { AddRequest } from '../api/requests';
 import { getType2 } from '../api/services';
-import { Link } from 'react-router-dom';
 import WorkSteps from '../component/WorkSteps';
 import { FiUser, FiPhone, FiMail, FiMessageSquare, FiSend, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 
@@ -59,6 +58,7 @@ const InfoSection2 = () => {
 const RepairComputer = () => {
   const [services, setServices]=React.useState([]);
 const [showModal, setShowModal] = useState(false);
+  const [selectedSService, setSelectedService] = React.useState('');
   const [formData, setFormData] = useState({
       fio: '',
       telephone: '',
@@ -77,18 +77,21 @@ const [showModal, setShowModal] = useState(false);
       message: ''
   });
 
-  // Валидация в реальном времени
   useEffect(() => {
       if (formData.fio) validateFio(formData.fio);
       if (formData.reason) validateReason(formData.reason);
   }, [formData.fio, formData.reason]);
 
-  const handleShowModal = () => setShowModal(true);
-
+  const handleShowModal = (serviceName = '') => {
+    setSelectedService(serviceName);  
+    setShowModal(true);
+    
+  };
   const handleCloseModal = () => {
       setShowModal(false);
       setFormData({ fio: '', telephone: '', email: '', reason: '' });
       setErrors({ fio: '', telephone: '', email: '', reason: '' });
+      setSelectedService('');
   };
 
   const showNotification = (variant, message) => {
@@ -148,7 +151,6 @@ const [showModal, setShowModal] = useState(false);
   const handleSubmit = async (e) => {
       e.preventDefault();
       
-      // Проверка всех полей перед отправкой
       const isFormValid = validateFio(formData.fio) && 
                         validatePhone(formData.telephone) && 
                         validateEmail(formData.email) && 
@@ -159,7 +161,14 @@ const [showModal, setShowModal] = useState(false);
       }
 
       try {
-          await AddRequest(formData);
+          const requestData = {
+                      ...formData
+                      };
+                      if (selectedSService!=null) {
+                        requestData.reason = `Услуга: ${selectedSService}\nОписание проблемы: ${formData.reason}`
+                      };
+                      await AddRequest(requestData);
+                      console.log('Форма отправлена:', requestData);
           console.log('Форма отправлена:', formData);
           showNotification('success', 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
           handleCloseModal();
@@ -210,8 +219,8 @@ const [showModal, setShowModal] = useState(false);
                 <p>
                     Сервисный центр «ТехноМедиаСоюз» осуществляет ремонт компьютеров и ноутбуков
                 </p>
-                <Button variant="primary" size="lg" onClick={handleShowModal}>
-                    Оставить заявку
+                <Button variant="primary" size="lg" onClick={() => handleShowModal(null)}>
+                     Оставить заявку
                 </Button>
 
                 <Modal show={showModal} onHide={handleCloseModal} centered >
@@ -356,8 +365,8 @@ const [showModal, setShowModal] = useState(false);
                   <td>{item.name}</td>
                   <td>от {item.cost} руб.</td>
                   <td>
-                    <Button variant="outline-primary" size="sm" onClick={handleShowModal}>
-                      Оставить заявку
+                   <Button variant="outline-primary" size="sm" onClick={() => handleShowModal(item.name)}>
+                          Оставить заявку
                     </Button>
                   </td>
                 </tr>

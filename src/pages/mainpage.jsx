@@ -27,7 +27,6 @@ const HeroSection = () => {
       message: ''
   });
 
-  // Валидация в реальном времени
   useEffect(() => {
       if (formData.fio) validateFio(formData.fio);
       if (formData.reason) validateReason(formData.reason);
@@ -121,7 +120,6 @@ const HeroSection = () => {
 
   return (
       <div className="hero-section">
-          {/* Центрированное уведомление */}
           {notification.show && (
               <div className="notification-wrapper d-flex justify-content-center">
                   <Alert 
@@ -164,7 +162,6 @@ const HeroSection = () => {
                   </Modal.Header>
                   <Modal.Body>
                       <Form onSubmit={handleSubmit}>
-                          {/* Поле ФИО */}
                           <Form.Group className="mb-3">
                               <Form.Label className="form-label-custom d-block mb-2">
                                   Ваше ФИО
@@ -187,7 +184,6 @@ const HeroSection = () => {
                               </InputGroup>
                           </Form.Group>
 
-                          {/* Поле Телефон */}
                           <Form.Group className="mb-3">
                               <Form.Label className="form-label-custom d-block mb-2">
                                   Телефон
@@ -217,7 +213,6 @@ const HeroSection = () => {
                               </InputGroup>
                           </Form.Group>
 
-                          {/* Поле Email */}
                           <Form.Group className="mb-3">
                               <Form.Label className="form-label-custom d-block mb-2">
                                   Email
@@ -337,7 +332,7 @@ const ServicesSection = () => {
                                 <Card.Text className="service-description">
                                     Быстрый и качественный ремонт компьютеров и ноутбуков.
                                 </Card.Text>
-                                <Link to="/computers" className="service-link">
+                                <Link to="/RepairComputer" className="service-link">
                                     Подробнее <span className="arrow">→</span>
                                 </Link>
                             </Card.Body>
@@ -418,7 +413,6 @@ const MapComponent = () => {
                   <h2 className="h22 text-center mb-5">Почему выбирают нас?</h2>
   
                   <Row className="text-center">
-                      {/* Блок 1: Опыт работы */}
                       <Col md={4} className="mb-4">
                         <div className="icon-container">
                           <RiHistoryLine className="icon-image" size={48} />
@@ -429,7 +423,6 @@ const MapComponent = () => {
                           </p>
                       </Col>
   
-                      {/* Блок 2: Качество */}
                       <Col md={4} className="mb-4">
                       <div className="icon-container">
   <RiMedalLine className="icon-image" size={48} />
@@ -440,7 +433,6 @@ const MapComponent = () => {
                           </p>
                       </Col>
   
-                      {/* Блок 3: Гарантия */}
                       <Col md={4} className="mb-4">
                           <div className="icon-container">
   <RiShieldCheckLine className="icon-image" size={48} />
@@ -457,29 +449,22 @@ const MapComponent = () => {
   };
 const ReviewsComponent = () => {
       useEffect(() => {
-        // Проверяем, был ли скрипт уже добавлен
         if (!document.querySelector('script[src="https://res.smartwidgets.ru/app.js"]')) {
-          // Создаем элемент <script>
           const script = document.createElement('script');
           script.src = 'https://res.smartwidgets.ru/app.js';
           script.defer = true;
-    
-          // Добавляем скрипт в <head>
           document.head.appendChild(script);
         }
     
-        // Создаем контейнер для виджета
         const widgetContainer = document.createElement('div');
         widgetContainer.className = 'sw-app';
         widgetContainer.setAttribute('data-app', '818fb198d62be30b0c919621579a47f8');
     
-        // Добавляем контейнер в DOM
         const container = document.getElementById('smart-widget-container');
         if (container) {
           container.appendChild(widgetContainer);
         }
     
-        // Очистка при размонтировании компонента
         return () => {
           if (container && widgetContainer.parentNode === container) {
             container.removeChild(widgetContainer);
@@ -511,18 +496,16 @@ const ReviewsComponent = () => {
             <h2 className='mb-2' style={{fontSize:"2.5rem"}}>Наши контакты</h2> 
 
             <Row className='justify-content-center'>
-                {/* Колонка 1: Телефон и почта */}
                 <Col md={3} className="mb-4">
                     <h3>Телефон и почта</h3>
                     <p>
-                        <strong>Телефон:</strong> +7 (123) 456-78-90
+                        <strong>Телефон:</strong> +7 (937) 527-92-49
                     </p>
                     <p>
-                        <strong>Почта:</strong> info@technomediasouz.ru
+                        <strong>Почта:</strong> servicetmsouz@mail.ru
                     </p>
                 </Col>
 
-                {/* Колонка 2: Режим работы */}
                 <Col md={3} className="mb-4">
                     <h3 >Режим работы</h3>
                     <p>
@@ -532,7 +515,6 @@ const ReviewsComponent = () => {
                         <strong>Сб-Вс:</strong> Выходной
                     </p>
                 </Col>
-                {/* Колонка 3: Адрес */}
                 <Col md={3} className="mb-4">
                     <h3>Адрес</h3>
                     <p>

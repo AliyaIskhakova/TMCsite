@@ -8,19 +8,19 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 const NavBar = () => {
     return (
-        <Navbar expand="md" style={{ backgroundColor: '#051354' }} >
+        <Navbar expand="md" sticky="top" style={{ backgroundColor: '#051354' }} >
             <Container fluid>
                 <Navbar.Brand href="/mainpage" style={{ color: '#fff' }}>ТехноМедиаСоюз</Navbar.Brand>
                 <Navbar.Toggle
                     aria-controls="offcanvasNavbar-expand-md"
-                    style={{ borderColor: '#fff' }} // Белая рамка для кнопки
+                    style={{ borderColor: '#fff' }}
                 >
                     <span
                         style={{
                             display: 'block',
                             width: '25px',
                             height: '3px',
-                            backgroundColor: '#fff', // Белые полоски
+                            backgroundColor: '#fff', 
                             margin: '4px 0',
                         }}
                     ></span>
@@ -29,7 +29,7 @@ const NavBar = () => {
                             display: 'block',
                             width: '25px',
                             height: '3px',
-                            backgroundColor: '#fff', // Белые полоски
+                            backgroundColor: '#fff',
                             margin: '4px 0',
                         }}
                     ></span>
@@ -38,7 +38,7 @@ const NavBar = () => {
                             display: 'block',
                             width: '25px',
                             height: '3px',
-                            backgroundColor: '#fff', // Белые полоски
+                            backgroundColor: '#fff',
                             margin: '4px 0',
                         }}
                     ></span>

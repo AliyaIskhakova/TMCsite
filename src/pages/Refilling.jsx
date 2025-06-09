@@ -1,10 +1,8 @@
-import React, { useState, useEffect, createContext } from 'react';
+import {useState, useEffect} from 'react';
 import { Container, Button, Modal, Form, Row, Col, Table, Alert, InputGroup } from 'react-bootstrap';
 import InputMask from 'react-input-mask';
 import { AddRequest } from '../api/requests';
-import { getType3, searchRefillServices, createRefillOrder } from '../api/services';
-
-import '../styles/Refilling.css'; // Добавляем стили для калькулятора
+import '../styles/Refilling.css';
 import WorkSteps from '../component/WorkSteps';
 import CartridgeCalculator from '../component/CartridgeCalculator.jsx'
 import { FiUser, FiPhone, FiMail, FiMessageSquare, FiSend, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
@@ -81,7 +79,6 @@ const [showModal, setShowModal] = useState(false);
       message: ''
   });
 
-  // Валидация в реальном времени
   useEffect(() => {
       if (formData.fio) validateFio(formData.fio);
       if (formData.reason) validateReason(formData.reason);
@@ -152,7 +149,6 @@ const [showModal, setShowModal] = useState(false);
   const handleSubmit = async (e) => {
       e.preventDefault();
       
-      // Проверка всех полей перед отправкой
       const isFormValid = validateFio(formData.fio) && 
                         validatePhone(formData.telephone) && 
                         validateEmail(formData.email) && 
@@ -220,7 +216,6 @@ const [showModal, setShowModal] = useState(false);
                               </Modal.Header>
                               <Modal.Body>
                                   <Form onSubmit={handleSubmit}>
-                                      {/* Поле ФИО */}
                                       <Form.Group className="mb-3">
                                           <Form.Label className="form-label-custom d-block mb-2">
                                               Ваше ФИО
@@ -243,7 +238,6 @@ const [showModal, setShowModal] = useState(false);
                                           </InputGroup>
                                       </Form.Group>
             
-                                      {/* Поле Телефон */}
                                       <Form.Group className="mb-3">
                                           <Form.Label className="form-label-custom d-block mb-2">
                                               Телефон
@@ -273,7 +267,6 @@ const [showModal, setShowModal] = useState(false);
                                           </InputGroup>
                                       </Form.Group>
             
-                                      {/* Поле Email */}
                                       <Form.Group className="mb-3">
                                           <Form.Label className="form-label-custom d-block mb-2">
                                               Email
@@ -296,7 +289,6 @@ const [showModal, setShowModal] = useState(false);
                                           </InputGroup>
                                       </Form.Group>
             
-                                      {/* Поле Вопрос */}
                                       <Form.Group className="mb-4">
                                           <Form.Label className="form-label-custom d-block mb-2">
                                               Ваш вопрос

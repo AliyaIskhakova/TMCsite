@@ -26,8 +26,7 @@ const CartridgeCalculator = () => {
       variant: 'success',
       message: ''
     });
-  
-    // Валидация в реальном времени
+
     useEffect(() => {
       if (formData.fio) validateFio(formData.fio);
       if (formData.telephone) validatePhone(formData.telephone);
@@ -109,7 +108,6 @@ const CartridgeCalculator = () => {
     const handleSubmitOrder = async (e) => {
       e.preventDefault();
       
-      // Проверка всех полей перед отправкой
       const isFormValid = validateFio(formData.fio) && 
                         validatePhone(formData.telephone) &&
                         validateEmail(formData.email);
@@ -129,11 +127,11 @@ const CartridgeCalculator = () => {
           email: formData.email,
           reason: selectedService.name
         });
-        showNotification('success', 'Заказ на заправку успешно оформлен!');
+        showNotification('success', 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
         resetForm();
       } catch (error) {
         console.error('Ошибка оформления заказа:', error);
-        showNotification('danger', 'Произошла ошибка при оформлении заказа');
+        showNotification('danger', 'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте ещё раз.');
       } finally {
         setIsLoading(false);
       }
@@ -224,7 +222,6 @@ const CartridgeCalculator = () => {
               <p>Стоимость: <strong>{selectedService.cost} ₽</strong></p>
             </div>
   
-            {/* Поле ФИО */}
             <Form.Group className="mb-3">
               <Form.Label className="form-label-custom d-block mb-2">
                 Ваше ФИО
@@ -247,7 +244,6 @@ const CartridgeCalculator = () => {
               </InputGroup>
             </Form.Group>
   
-            {/* Поле Телефон */}
             <Form.Group className="mb-3">
               <Form.Label className="form-label-custom d-block mb-2">
                 Телефон
@@ -277,7 +273,6 @@ const CartridgeCalculator = () => {
               </InputGroup>
             </Form.Group>
   
-            {/* Поле Email */}
             <Form.Group className="mb-4">
               <Form.Label className="form-label-custom d-block mb-2">
                 Email
