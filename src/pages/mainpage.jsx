@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Container, Button, Modal, Form, Row, Col, Card, InputGroup, Alert } from 'react-bootstrap';
 import InputMask from 'react-input-mask'; 
-
 import { AddRequest } from '../api/requests';
 import { Link } from 'react-router-dom';
 import '../styles/MainPage.css';
